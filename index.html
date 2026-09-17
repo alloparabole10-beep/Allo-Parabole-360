@@ -4,77 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080b12">
-<meta name="description" content="Allo Parabole 360° - Votre solution pour tout ce qui concerne le monde de la vision.">
+<meta name="description" content="Allo Parabole 360° - Le monde de la vision.">
 <title>Allo Parabole 360°</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
 --bg:#080b12;
 --bg2:#101624;
 --card:rgba(255,255,255,.055);
---border:rgba(255,255,255,.11);
+--border:rgba(255,255,255,.10);
 --gold:#ffd166;
 --orange:#ff9f1c;
 --white:#fff;
 --muted:#aab2c0;
 --green:#3ddc97;
---red:#ff5c7a;
+--red:#ff647c;
 }
 
 body{
-font-family:'Montserrat','Cairo',sans-serif;
+font-family:Montserrat,Cairo,sans-serif;
 background:
-radial-gradient(circle at 90% 5%,rgba(255,159,28,.14),transparent 30%),
-radial-gradient(circle at 0% 40%,rgba(255,209,102,.07),transparent 25%),
+radial-gradient(circle at 90% 5%,rgba(255,159,28,.13),transparent 30%),
+radial-gradient(circle at 0 40%,rgba(255,209,102,.07),transparent 25%),
 var(--bg);
-color:var(--white);
+color:white;
 min-height:100vh;
 overflow-x:hidden;
 }
 
-button,input,select{
-font-family:inherit
-}
-
-button{
-cursor:pointer
-}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
 
 .app{
 max-width:600px;
 margin:auto;
 min-height:100vh;
-padding-bottom:100px
+padding-bottom:95px;
 }
-
-/* HEADER */
 
 header{
 padding:20px;
 display:flex;
 justify-content:space-between;
-align-items:center
+align-items:center;
 }
 
 .brand{
 display:flex;
 align-items:center;
-gap:11px
+gap:11px;
 }
 
 .logo{
@@ -83,19 +67,18 @@ height:54px;
 border-radius:50%;
 object-fit:cover;
 border:2px solid rgba(255,209,102,.65);
-box-shadow:0 0 25px rgba(255,159,28,.2)
+box-shadow:0 0 25px rgba(255,159,28,.2);
 }
 
-.brand-text h1{
+.brand h1{
 font-size:16px;
 font-weight:800;
-letter-spacing:.5px
 }
 
-.brand-text span{
+.brand span{
 font-size:9px;
 color:var(--gold);
-letter-spacing:1px
+letter-spacing:1px;
 }
 
 .lang-btn{
@@ -103,13 +86,11 @@ border:1px solid var(--border);
 background:var(--card);
 color:white;
 padding:9px 12px;
-border-radius:13px
+border-radius:13px;
 }
 
-/* HERO */
-
 .hero{
-padding:38px 20px 25px
+padding:35px 20px 25px;
 }
 
 .hero .small{
@@ -117,49 +98,45 @@ color:var(--gold);
 font-size:12px;
 font-weight:700;
 letter-spacing:1.5px;
-margin-bottom:12px
+margin-bottom:12px;
 }
 
 .hero h2{
 font-size:34px;
 line-height:1.15;
 font-weight:800;
-margin-bottom:14px
+margin-bottom:14px;
 }
 
 .hero h2 span{
 background:linear-gradient(90deg,var(--gold),var(--orange));
 -webkit-background-clip:text;
-color:transparent
+color:transparent;
 }
 
 .hero p{
 color:var(--muted);
+font-size:14px;
 line-height:1.7;
-font-size:14px
 }
-
-/* MAIN */
 
 .main-action{
 margin:10px 20px 28px;
 padding:22px;
 border-radius:25px;
-background:
-linear-gradient(135deg,rgba(255,159,28,.17),rgba(255,209,102,.04)),
-var(--card);
-border:1px solid rgba(255,159,28,.22)
+background:linear-gradient(135deg,rgba(255,159,28,.17),rgba(255,209,102,.04)),var(--card);
+border:1px solid rgba(255,159,28,.22);
 }
 
 .main-action h3{
 font-size:18px;
-margin-bottom:7px
+margin-bottom:7px;
 }
 
 .main-action p{
 color:var(--muted);
 font-size:12px;
-margin-bottom:17px
+margin-bottom:17px;
 }
 
 .primary{
@@ -170,7 +147,6 @@ border-radius:15px;
 background:linear-gradient(90deg,var(--orange),var(--gold));
 color:#111;
 font-weight:800;
-box-shadow:0 8px 25px rgba(255,159,28,.18)
 }
 
 .secondary{
@@ -180,36 +156,28 @@ background:rgba(255,209,102,.07);
 color:var(--gold);
 padding:13px;
 border-radius:13px;
-font-weight:700
+font-weight:700;
 }
 
 .section{
 padding:0 20px;
-margin-bottom:30px
+margin-bottom:30px;
 }
 
 .section-title{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:15px
+margin-bottom:15px;
 }
 
-.section-title h3{
-font-size:19px
-}
-
-.section-title span{
-color:var(--gold);
-font-size:10px
-}
-
-/* PROBLEMS */
+.section-title h3{font-size:19px}
+.section-title span{color:var(--gold);font-size:11px}
 
 .problem-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:11px
+gap:11px;
 }
 
 .problem{
@@ -218,61 +186,34 @@ padding:16px;
 background:var(--card);
 border:1px solid var(--border);
 border-radius:19px;
-transition:.2s
 }
 
 .problem:active{
-transform:scale(.97)
+transform:scale(.97);
+border-color:var(--gold);
 }
 
 .problem-icon{
 font-size:26px;
-margin-bottom:10px
+margin-bottom:11px;
 }
 
 .problem strong{
 display:block;
 font-size:12px;
-line-height:1.4
+line-height:1.4;
 }
 
 .problem small{
 color:var(--muted);
 display:block;
 margin-top:4px;
-font-size:10px
+font-size:10px;
 }
-
-/* DIAGNOSTIC */
-
-.diagnostic{
-padding:20px;
-border-radius:23px;
-background:linear-gradient(145deg,#131c2d,#0e1420);
-border:1px solid var(--border)
-}
-
-.diagnostic-icon{
-font-size:35px;
-margin-bottom:10px
-}
-
-.diagnostic h3{
-margin-bottom:7px
-}
-
-.diagnostic p{
-color:var(--muted);
-font-size:12px;
-line-height:1.6;
-margin-bottom:15px
-}
-
-/* SERVICES */
 
 .services{
 display:grid;
-gap:11px
+gap:11px;
 }
 
 .service{
@@ -282,7 +223,7 @@ gap:14px;
 padding:15px;
 background:var(--card);
 border:1px solid var(--border);
-border-radius:17px
+border-radius:17px;
 }
 
 .service-icon{
@@ -293,36 +234,19 @@ display:grid;
 place-items:center;
 background:rgba(255,159,28,.1);
 font-size:24px;
-flex-shrink:0
+flex-shrink:0;
 }
 
-.service-info{
-flex:1
-}
-
-.service-info strong{
-font-size:13px;
-display:block
-}
-
-.service-info small{
-color:var(--muted);
-font-size:10px;
-line-height:1.5
-}
-
-.arrow{
-color:var(--gold);
-font-size:25px
-}
-
-/* PROMO */
+.service-info{flex:1}
+.service-info strong{font-size:13px;display:block}
+.service-info small{color:var(--muted);font-size:10px;line-height:1.5}
+.arrow{color:var(--gold)}
 
 .promo{
 padding:21px;
 border-radius:22px;
 border:1px solid rgba(255,209,102,.2);
-background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(255,159,28,.03))
+background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(255,159,28,.03));
 }
 
 .promo .tag{
@@ -333,21 +257,11 @@ color:var(--gold);
 border-radius:8px;
 font-size:9px;
 font-weight:800;
-margin-bottom:10px
+margin-bottom:10px;
 }
 
-.promo h3{
-font-size:18px;
-margin-bottom:7px
-}
-
-.promo p{
-color:var(--muted);
-font-size:11px;
-line-height:1.6
-}
-
-/* NAV */
+.promo h3{font-size:18px;margin-bottom:7px}
+.promo p{color:var(--muted);font-size:11px;line-height:1.6}
 
 .bottom-nav{
 position:fixed;
@@ -356,13 +270,13 @@ left:50%;
 transform:translateX(-50%);
 width:min(600px,100%);
 height:78px;
-padding:10px 12px;
+padding:9px 8px;
 background:rgba(9,12,19,.94);
 backdrop-filter:blur(18px);
 border-top:1px solid var(--border);
 display:grid;
 grid-template-columns:repeat(4,1fr);
-z-index:20
+z-index:20;
 }
 
 .nav-btn{
@@ -370,35 +284,29 @@ background:transparent;
 border:0;
 color:#7f8795;
 font-size:10px;
-font-weight:600
+font-weight:600;
 }
 
 .nav-btn span{
 display:block;
-font-size:22px;
-margin-bottom:3px
+font-size:21px;
+margin-bottom:3px;
 }
 
-.nav-btn.active{
-color:var(--gold)
-}
-
-/* MODAL */
+.nav-btn.active{color:var(--gold)}
 
 .modal{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.75);
-backdrop-filter:blur(7px);
+background:rgba(0,0,0,.76);
+backdrop-filter:blur(8px);
 display:none;
 align-items:flex-end;
 justify-content:center;
-z-index:100
+z-index:100;
 }
 
-.modal.show{
-display:flex
-}
+.modal.show{display:flex}
 
 .modal-box{
 width:min(600px,100%);
@@ -408,7 +316,7 @@ padding:24px 20px 35px;
 background:#101623;
 border:1px solid var(--border);
 border-radius:27px 27px 0 0;
-animation:up .25s ease
+animation:up .25s ease;
 }
 
 @keyframes up{
@@ -420,12 +328,10 @@ to{transform:translateY(0)}
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
-.modal-head h3{
-font-size:20px
-}
+.modal-head h3{font-size:20px}
 
 .close{
 border:0;
@@ -434,20 +340,16 @@ color:white;
 width:38px;
 height:38px;
 border-radius:50%;
-font-size:20px
+font-size:20px;
 }
 
-/* FORMS */
-
-.form-group{
-margin-bottom:14px
-}
+.form-group{margin-bottom:14px}
 
 .form-group label{
 display:block;
 color:var(--muted);
 font-size:11px;
-margin-bottom:7px
+margin-bottom:7px;
 }
 
 .form-group input,
@@ -458,61 +360,139 @@ border-radius:13px;
 border:1px solid var(--border);
 outline:none;
 background:rgba(255,255,255,.05);
-color:white
+color:white;
 }
 
-.form-group option{
-background:#101623
-}
+.form-group option{background:#101623}
 
-.form-group input::placeholder{
-color:#6f7888
-}
-
-/* TABS */
-
-.tabs{
+.auth-tabs{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:8px;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
-.tab{
+.auth-tab{
 border:1px solid var(--border);
-background:var(--card);
+background:rgba(255,255,255,.04);
 color:var(--muted);
 padding:12px;
 border-radius:12px;
-font-weight:700
 }
 
-.tab.active{
-background:rgba(255,159,28,.15);
-border-color:var(--orange);
-color:var(--gold)
+.auth-tab.active{
+color:#111;
+background:linear-gradient(90deg,var(--orange),var(--gold));
 }
 
-/* CARDS */
-
-.info-card{
-padding:16px;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:17px;
-margin-bottom:10px
+.profile-top{
+text-align:center;
+margin-bottom:20px;
 }
 
-.info-card strong{
-display:block;
-font-size:13px;
-margin-bottom:6px
+.profile-photo-wrap{
+position:relative;
+width:105px;
+height:105px;
+margin:0 auto 12px;
 }
 
-.info-card small{
+.profile-photo{
+width:105px;
+height:105px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--gold);
+background:#171e2c;
+}
+
+.photo-btn{
+position:absolute;
+right:0;
+bottom:0;
+width:35px;
+height:35px;
+border-radius:50%;
+border:2px solid #101623;
+background:var(--orange);
+font-size:17px;
+}
+
+.profile-name{
+font-size:19px;
+font-weight:800;
+}
+
+.profile-email{
 color:var(--muted);
 font-size:11px;
-line-height:1.6
+margin-top:4px;
+}
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+margin-bottom:18px;
+}
+
+.dash-card{
+padding:17px;
+border-radius:18px;
+background:var(--card);
+border:1px solid var(--border);
+}
+
+.dash-icon{
+font-size:25px;
+margin-bottom:8px;
+}
+
+.dash-card strong{
+display:block;
+font-size:13px;
+}
+
+.dash-card small{
+color:var(--muted);
+font-size:10px;
+}
+
+.points{
+text-align:center;
+padding:20px;
+border-radius:20px;
+background:linear-gradient(135deg,rgba(255,209,102,.12),rgba(255,159,28,.05));
+border:1px solid rgba(255,209,102,.25);
+margin-bottom:18px;
+}
+
+.points-number{
+font-size:38px;
+font-weight:800;
+color:var(--gold);
+}
+
+.points small{color:var(--muted)}
+
+.item{
+padding:14px;
+border:1px solid var(--border);
+background:var(--card);
+border-radius:15px;
+margin-bottom:10px;
+}
+
+.item-title{
+font-size:13px;
+font-weight:800;
+margin-bottom:6px;
+}
+
+.item-text{
+font-size:11px;
+color:var(--muted);
+line-height:1.6;
 }
 
 .status{
@@ -521,148 +501,99 @@ margin-top:8px;
 padding:5px 9px;
 border-radius:8px;
 font-size:9px;
-font-weight:800
+font-weight:800;
+background:rgba(255,209,102,.1);
+color:var(--gold);
 }
 
-.status.nouvelle{
-background:rgba(255,159,28,.14);
-color:var(--gold)
+.status.accepted{
+background:rgba(61,220,151,.1);
+color:var(--green);
 }
 
-.status.encours{
-background:rgba(255,209,102,.12);
-color:var(--gold)
-}
-
-.status.acceptee{
-background:rgba(61,220,151,.12);
-color:var(--green)
-}
-
-.status.terminee{
+.status.finished{
 background:rgba(255,255,255,.08);
-color:var(--muted)
+color:#fff;
+}
+
+.status.progress{
+background:rgba(255,159,28,.1);
+color:var(--orange);
 }
 
 .empty{
 text-align:center;
-padding:30px 10px;
+padding:25px 10px;
 color:var(--muted);
-font-size:12px
+font-size:12px;
 }
 
-.success{
+.alert{
+padding:13px;
+border-radius:13px;
+font-size:11px;
+line-height:1.5;
+margin-bottom:12px;
+display:none;
+}
+
+.alert.show{display:block}
+
+.alert.error{
+background:rgba(255,100,124,.1);
+border:1px solid rgba(255,100,124,.25);
+color:#ff9cac;
+}
+
+.alert.success{
+background:rgba(61,220,151,.1);
+border:1px solid rgba(61,220,151,.25);
+color:var(--green);
+}
+
+.logout{
+margin-top:10px;
+width:100%;
+padding:13px;
+border-radius:13px;
+border:1px solid rgba(255,100,124,.3);
+background:rgba(255,100,124,.07);
+color:#ff8fa1;
+font-weight:700;
+}
+
+.hidden{display:none!important}
+
+.success-box{
 text-align:center;
-padding:20px 5px
+padding:20px 5px;
 }
 
 .success-icon{
 font-size:55px;
-margin-bottom:12px
+margin-bottom:12px;
 }
 
-.success p{
+.success-box p{
 color:var(--muted);
 line-height:1.7;
 font-size:13px;
-margin:10px 0 20px
+margin:10px 0 20px;
 }
 
-/* PROFILE */
-
-.profile-box{
-text-align:center;
-padding:10px 0 20px
-}
-
-.profile-avatar{
-width:75px;
-height:75px;
-margin:auto;
-border-radius:50%;
-display:grid;
-place-items:center;
-font-size:32px;
-background:linear-gradient(135deg,var(--orange),var(--gold));
-color:#111;
-font-weight:800
-}
-
-.profile-box h3{
-margin-top:12px
-}
-
-.points{
-margin-top:15px;
-padding:18px;
-border-radius:18px;
-background:linear-gradient(135deg,rgba(255,159,28,.16),rgba(255,209,102,.05));
-border:1px solid rgba(255,209,102,.2);
-text-align:center
-}
-
-.points b{
-display:block;
-font-size:30px;
-color:var(--gold)
-}
-
-.points span{
-font-size:10px;
-color:var(--muted)
-}
-
-/* TOAST */
-
-.toast{
-position:fixed;
-left:50%;
-bottom:92px;
-transform:translateX(-50%) translateY(20px);
-width:min(90%,500px);
-padding:14px 16px;
-background:#151d2d;
-border:1px solid var(--border);
-border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,.4);
-opacity:0;
-pointer-events:none;
-transition:.3s;
-z-index:300;
-text-align:center;
-font-size:12px
-}
-
-.toast.show{
-opacity:1;
-transform:translateX(-50%) translateY(0)
-}
-
-/* RTL */
-
-body.rtl{
+.rtl{
 direction:rtl;
-font-family:'Cairo',sans-serif
+font-family:Cairo,sans-serif;
 }
 
-body.rtl .brand,
-body.rtl .service{
-direction:rtl
-}
-
-body.rtl .modal-head{
-direction:rtl
-}
-
-body.rtl .arrow{
-transform:rotate(180deg)
-}
+.rtl .brand,.rtl .service{direction:rtl}
+.rtl .arrow{transform:rotate(180deg)}
 
 @media(min-width:601px){
 .bottom-nav{
 border-left:1px solid var(--border);
 border-right:1px solid var(--border);
-border-radius:20px 20px 0 0
+border-radius:20px 20px 0 0;
 }
 }
 </style>
@@ -677,71 +608,57 @@ border-radius:20px 20px 0 0
 <img class="logo"
 src="https://i.postimg.cc/0QS33zML/Picsart-25-06-19-21-10-31-112.jpg"
 alt="Allo Parabole">
-<div class="brand-text">
+<div>
 <h1>ALLO PARABOLE</h1>
 <span>360° • MONDE DE LA VISION</span>
 </div>
 </div>
 
-<button class="lang-btn" onclick="toggleLanguage()" id="langBtn">🇩🇿 AR</button>
+<button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🇩🇿 AR</button>
 </header>
 
 <main>
 
 <section class="hero">
-
-<div class="small"
-data-fr="VOTRE SOLUTION LOCALE"
-data-ar="الحل بين يديك">
+<div class="small" data-fr="VOTRE SOLUTION LOCALE" data-ar="الحل بين يديك">
 VOTRE SOLUTION LOCALE
 </div>
 
-<h2
-data-fr="Tout commence par votre <span>besoin.</span>"
+<h2 data-fr="Tout commence par votre <span>besoin.</span>"
 data-ar="كل شيء يبدأ من <span>مشكلتك.</span>">
 Tout commence par votre <span>besoin.</span>
 </h2>
 
-<p
-data-fr="Installation, réglage, réception, télévision et solutions du monde de la vision. Allo Parabole vous accompagne simplement et professionnellement."
+<p data-fr="Installation, réglage, réception, télévision et solutions du monde de la vision. Allo Parabole vous accompagne simplement."
 data-ar="تركيب، ضبط، استقبال، تلفاز وكل ما يخص عالم المشاهدة. Allo Parabole معك بطريقة بسيطة واحترافية.">
 Installation, réglage, réception, télévision et solutions du monde de la vision.
-Allo Parabole vous accompagne simplement et professionnellement.
+Allo Parabole vous accompagne simplement.
 </p>
-
 </section>
 
-
 <section class="main-action">
-
-<h3 data-fr="🎯 Vous avez un problème ?"
-data-ar="🎯 عندك مشكل؟">
+<h3 data-fr="🎯 Vous avez un problème ?" data-ar="🎯 عندك مشكل؟">
 🎯 Vous avez un problème ?
 </h3>
 
 <p data-fr="Dites-nous simplement ce qui ne fonctionne pas."
-data-ar="قل لنا فقط واش هو المشكل وسنساعدك تلقى الحل.">
+data-ar="قل لنا فقط ما هو المشكل وسنساعدك في إيجاد الحل.">
 Dites-nous simplement ce qui ne fonctionne pas.
 </p>
 
-<button class="primary"
-onclick="openDiagnostic()"
+<button class="primary" onclick="openDiagnostic()"
 data-fr="🧠 Lancer le Diagnostic Express"
 data-ar="🧠 ابدأ التشخيص السريع">
 🧠 Lancer le Diagnostic Express
 </button>
-
 </section>
-
 
 <section class="section">
 
 <div class="section-title">
-<h3 data-fr="De quoi avez-vous besoin ?"
-data-ar="ماذا تحتاج؟">
+<h3 data-fr="De quoi avez-vous besoin ?" data-ar="ماذا تحتاج؟">
 De quoi avez-vous besoin ?
 </h3>
-
 <span data-fr="CHOISIR" data-ar="اختر">CHOISIR</span>
 </div>
 
@@ -786,46 +703,43 @@ De quoi avez-vous besoin ?
 </div>
 </section>
 
-
 <section class="section">
 
 <div class="section-title">
 <h3 data-fr="Diagnostic Express" data-ar="التشخيص السريع">
 Diagnostic Express
 </h3>
-<span>AI • 360°</span>
+<span>360°</span>
 </div>
 
-<div class="diagnostic">
+<div class="diagnostic" style="padding:20px;border-radius:23px;background:linear-gradient(145deg,#131c2d,#0e1420);border:1px solid var(--border);">
 
-<div class="diagnostic-icon">🧠</div>
+<div style="font-size:35px;margin-bottom:10px">🧠</div>
 
 <h3 data-fr="Vous ne connaissez pas le problème ?"
 data-ar="لا تعرف ما هو المشكل؟">
 Vous ne connaissez pas le problème ?
 </h3>
 
-<p data-fr="Répondez à quelques questions simples pour identifier l'intervention adaptée."
-data-ar="أجب عن بعض الأسئلة البسيطة لمعرفة التدخل المناسب.">
-Répondez à quelques questions simples pour identifier l'intervention adaptée.
+<p style="color:var(--muted);font-size:12px;line-height:1.6;margin:7px 0 15px"
+data-fr="Répondez à quelques questions simples et découvrez quelle intervention peut correspondre à votre situation."
+data-ar="أجب عن بعض الأسئلة البسيطة وسنساعدك على معرفة التدخل المناسب لحالتك.">
+Répondez à quelques questions simples et découvrez quelle intervention peut correspondre à votre situation.
 </p>
 
-<button class="secondary"
-onclick="openDiagnostic()"
-data-fr="Commencer →"
-data-ar="ابدأ الآن ←">
+<button class="secondary" onclick="openDiagnostic()"
+data-fr="Commencer →" data-ar="ابدأ الآن ←">
 Commencer →
 </button>
 
 </div>
 </section>
 
-
 <section class="section">
 
 <div class="section-title">
 <h3 data-fr="Nos solutions" data-ar="خدماتنا">Nos solutions</h3>
-<span data-fr="SERVICES" data-ar="الخدمات">SERVICES</span>
+<span data-fr="VOIR TOUT" data-ar="الكل">VOIR TOUT</span>
 </div>
 
 <div class="services">
@@ -859,7 +773,7 @@ Optimisation du signal et recherche des chaînes.
 <div class="service-info">
 <strong data-fr="TV murale" data-ar="تعليق التلفاز">TV murale</strong>
 <small data-fr="Fixation propre, stable et esthétique."
-data-ar="تعليق ثابت وآمن وأنيق.">
+data-ar="تعليق ثابت، آمن وأنيق.">
 Fixation propre, stable et esthétique.
 </small>
 </div>
@@ -881,32 +795,27 @@ Installation de moteurs manuels et automatiques.
 </div>
 </section>
 
-
 <section class="section">
-
 <div class="promo">
 
 <div class="tag">ALLO PARABOLE 360°</div>
 
-<h3 data-fr="🎁 Votre espace client est connecté"
-data-ar="🎁 حسابك أصبح مرتبطًا">
-🎁 Votre espace client est connecté
+<h3 data-fr="🎁 Vos avantages arrivent..."
+data-ar="🎁 مزاياك قادمة...">
+🎁 Vos avantages arrivent...
 </h3>
 
-<p data-fr="Réservations, rendez-vous, notifications et points de fidélité seront enregistrés directement dans votre compte."
-data-ar="حجوزاتك، مواعيدك، إشعاراتك ونقاط الوفاء يتم حفظها مباشرة في حسابك.">
-Réservations, rendez-vous, notifications et points de fidélité seront enregistrés directement dans votre compte.
+<p data-fr="Profitez bientôt des offres, notifications, rendez-vous et programme de fidélité directement dans votre espace."
+data-ar="استفد قريبًا من العروض والإشعارات والمواعيد ونظام الوفاء مباشرة داخل حسابك.">
+Profitez bientôt des offres, notifications, rendez-vous et programme de fidélité directement dans votre espace.
 </p>
 
 </div>
-
 </section>
 
 </main>
 </div>
 
-
-<!-- NAVIGATION -->
 
 <nav class="bottom-nav">
 
@@ -933,10 +842,226 @@ Réservations, rendez-vous, notifications et points de fidélité seront enregis
 </nav>
 
 
+<!-- AUTH -->
+
+<div class="modal" id="authModal">
+<div class="modal-box">
+
+<div class="modal-head">
+<h3 data-fr="👤 Mon espace" data-ar="👤 حسابي">👤 Mon espace</h3>
+<button class="close" onclick="closeModal('authModal')">×</button>
+</div>
+
+<div class="auth-tabs">
+
+<button id="loginTab" class="auth-tab active" onclick="showLogin()"
+data-fr="Connexion" data-ar="تسجيل الدخول">
+Connexion
+</button>
+
+<button id="registerTab" class="auth-tab" onclick="showRegister()"
+data-fr="Créer un compte" data-ar="إنشاء حساب">
+Créer un compte
+</button>
+
+</div>
+
+<div id="authAlert" class="alert"></div>
+
+<div id="loginForm">
+
+<div class="form-group">
+<label data-fr="Email" data-ar="البريد الإلكتروني">Email</label>
+<input type="email" id="loginEmail" autocomplete="email">
+</div>
+
+<div class="form-group">
+<label data-fr="Mot de passe" data-ar="كلمة المرور">Mot de passe</label>
+<input type="password" id="loginPassword" autocomplete="current-password">
+</div>
+
+<button class="primary" onclick="loginUser()"
+data-fr="SE CONNECTER" data-ar="تسجيل الدخول">
+SE CONNECTER
+</button>
+
+</div>
+
+
+<div id="registerForm" class="hidden">
+
+<div class="form-group">
+<label data-fr="Nom complet" data-ar="الاسم الكامل">Nom complet</label>
+<input type="text" id="regName">
+</div>
+
+<div class="form-group">
+<label data-fr="Email" data-ar="البريد الإلكتروني">Email</label>
+<input type="email" id="regEmail" autocomplete="email">
+</div>
+
+<div class="form-group">
+<label data-fr="Téléphone" data-ar="رقم الهاتف">Téléphone</label>
+<input type="tel" id="regPhone" placeholder="0559...">
+</div>
+
+<div class="form-group">
+<label data-fr="Adresse" data-ar="العنوان">Adresse</label>
+<input type="text" id="regAddress" placeholder="Guelma...">
+</div>
+
+<div class="form-group">
+<label data-fr="Mot de passe" data-ar="كلمة المرور">Mot de passe</label>
+<input type="password" id="regPassword" autocomplete="new-password">
+</div>
+
+<div class="form-group">
+<label data-fr="Confirmer le mot de passe" data-ar="تأكيد كلمة المرور">
+Confirmer le mot de passe
+</label>
+<input type="password" id="regPassword2" autocomplete="new-password">
+</div>
+
+<button class="primary" onclick="registerUser()"
+data-fr="CRÉER MON COMPTE" data-ar="إنشاء حسابي">
+CRÉER MON COMPTE
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- CLIENT DASHBOARD -->
+
+<div class="modal" id="clientModal">
+<div class="modal-box">
+
+<div class="modal-head">
+<h3 data-fr="✨ Mon espace" data-ar="✨ حسابي">✨ Mon espace</h3>
+<button class="close" onclick="closeModal('clientModal')">×</button>
+</div>
+
+<div id="loggedOutClient">
+
+<div class="empty">
+<div style="font-size:45px;margin-bottom:10px">👤</div>
+
+<p data-fr="Connectez-vous ou créez votre compte pour accéder à votre espace personnel."
+data-ar="سجل الدخول أو أنشئ حسابك للوصول إلى مساحتك الشخصية.">
+Connectez-vous ou créez votre compte pour accéder à votre espace personnel.
+</p>
+
+<br>
+
+<button class="primary" onclick="openAuthFromClient()"
+data-fr="🔐 Se connecter / Créer un compte"
+data-ar="🔐 تسجيل الدخول / إنشاء حساب">
+🔐 Se connecter / Créer un compte
+</button>
+</div>
+
+</div>
+
+
+<div id="loggedClient" class="hidden">
+
+<div class="profile-top">
+
+<div class="profile-photo-wrap">
+
+<img id="profilePhoto"
+class="profile-photo"
+src="https://i.postimg.cc/0QS33zML/Picsart-25-06-19-21-10-31-112.jpg">
+
+<label class="photo-btn" for="photoInput">📷</label>
+
+<input id="photoInput"
+type="file"
+accept="image/*"
+class="hidden"
+onchange="uploadProfilePhoto(event)">
+
+</div>
+
+<div id="profileName" class="profile-name">Client</div>
+<div id="profileEmail" class="profile-email"></div>
+
+</div>
+
+
+<div class="points">
+
+<div class="points-number" id="pointsNumber">0</div>
+
+<strong data-fr="Points de fidélité"
+data-ar="نقاط الوفاء">
+Points de fidélité
+</strong>
+
+<br>
+
+<small data-fr="Vos points sont liés à votre compte."
+data-ar="نقاطك مرتبطة بحسابك.">
+Vos points sont liés à votre compte.
+</small>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+<div class="dash-card" onclick="showReservations()">
+<div class="dash-icon">📅</div>
+<strong data-fr="Mes réservations" data-ar="حجوزاتي">Mes réservations</strong>
+<small data-fr="Voir mes demandes" data-ar="مشاهدة الطلبات">Voir mes demandes</small>
+</div>
+
+<div class="dash-card" onclick="showNotifications()">
+<div class="dash-icon">🔔</div>
+<strong data-fr="Notifications" data-ar="الإشعارات">Notifications</strong>
+<small data-fr="Informations importantes" data-ar="معلومات مهمة">Informations importantes</small>
+</div>
+
+<div class="dash-card" onclick="showAppointments()">
+<div class="dash-icon">🗓️</div>
+<strong data-fr="Mes rendez-vous" data-ar="مواعيدي">Mes rendez-vous</strong>
+<small data-fr="Mes interventions" data-ar="تدخلاتي">Mes interventions</small>
+</div>
+
+<div class="dash-card" onclick="showProfile()">
+<div class="dash-icon">⚙️</div>
+<strong data-fr="Mon profil" data-ar="ملفي الشخصي">Mon profil</strong>
+<small data-fr="Modifier mes informations" data-ar="تعديل معلوماتي">Modifier mes informations</small>
+</div>
+
+</div>
+
+
+<div id="clientContent"></div>
+
+<button class="secondary" onclick="openBooking('')"
+data-fr="📅 Nouvelle réservation"
+data-ar="📅 حجز جديد">
+📅 Nouvelle réservation
+</button>
+
+<button class="logout" onclick="logoutUser()"
+data-fr="🚪 Se déconnecter"
+data-ar="🚪 تسجيل الخروج">
+🚪 Se déconnecter
+</button>
+
+</div>
+
+</div>
+</div>
+
+
 <!-- BOOKING -->
 
 <div class="modal" id="bookingModal">
-
 <div class="modal-box">
 
 <div class="modal-head">
@@ -947,6 +1072,8 @@ data-ar="📅 حجز تدخل">
 
 <button class="close" onclick="closeModal('bookingModal')">×</button>
 </div>
+
+<div id="bookingAlert" class="alert"></div>
 
 <form onsubmit="submitBooking(event)">
 
@@ -966,17 +1093,17 @@ data-ar="📅 حجز تدخل">
 
 <div class="form-group">
 <label data-fr="Nom complet" data-ar="الاسم الكامل">Nom complet</label>
-<input type="text" id="name" required placeholder="Votre nom">
+<input type="text" id="name" required>
 </div>
 
 <div class="form-group">
 <label data-fr="Téléphone" data-ar="الهاتف">Téléphone</label>
-<input type="tel" id="phone" required placeholder="0559...">
+<input type="tel" id="phone" required>
 </div>
 
 <div class="form-group">
 <label data-fr="Adresse" data-ar="العنوان">Adresse</label>
-<input type="text" id="address" required placeholder="Guelma...">
+<input type="text" id="address" required>
 </div>
 
 <div class="form-group">
@@ -1001,6 +1128,7 @@ CONFIRMER MA DEMANDE
 </button>
 
 </form>
+
 </div>
 </div>
 
@@ -1008,7 +1136,6 @@ CONFIRMER MA DEMANDE
 <!-- DIAGNOSTIC -->
 
 <div class="modal" id="diagnosticModal">
-
 <div class="modal-box">
 
 <div class="modal-head">
@@ -1023,7 +1150,6 @@ data-ar="🧠 التشخيص السريع">
 <div id="diagnosticContent">
 
 <div class="form-group">
-
 <label data-fr="Votre problème concerne-t-il le signal ?"
 data-ar="هل المشكل متعلق بالإشارة؟">
 Votre problème concerne-t-il le signal ?
@@ -1034,11 +1160,9 @@ Votre problème concerne-t-il le signal ?
 <option value="no">Non / لا</option>
 <option value="unknown">Je ne sais pas / لا أعرف</option>
 </select>
-
 </div>
 
 <div class="form-group">
-
 <label data-fr="Toutes les chaînes sont-elles concernées ?"
 data-ar="هل كل القنوات متأثرة؟">
 Toutes les chaînes sont-elles concernées ?
@@ -1049,11 +1173,9 @@ Toutes les chaînes sont-elles concernées ?
 <option value="no">Non / لا</option>
 <option value="unknown">Je ne sais pas / لا أعرف</option>
 </select>
-
 </div>
 
 <div class="form-group">
-
 <label data-fr="Le problème est-il apparu récemment ?"
 data-ar="هل ظهر المشكل مؤخرًا؟">
 Le problème est-il apparu récemment ?
@@ -1063,11 +1185,9 @@ Le problème est-il apparu récemment ?
 <option value="yes">Oui / نعم</option>
 <option value="no">Non / لا</option>
 </select>
-
 </div>
 
-<button class="primary"
-onclick="diagnose()"
+<button class="primary" onclick="diagnose()"
 data-fr="🔎 Voir le résultat"
 data-ar="🔎 مشاهدة النتيجة">
 🔎 Voir le résultat
@@ -1078,75 +1198,43 @@ data-ar="🔎 مشاهدة النتيجة">
 </div>
 
 
-<!-- CLIENT -->
+<script type="module">
 
-<div class="modal" id="clientModal">
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-<div class="modal-box">
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged,
+updateProfile
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-<div class="modal-head">
-<h3 data-fr="👤 Mon espace"
-data-ar="👤 حسابي">
-👤 Mon espace
-</h3>
+import {
+getDatabase,
+ref,
+set,
+push,
+onValue,
+get,
+update,
+remove
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-<button class="close" onclick="closeModal('clientModal')">×</button>
-</div>
-
-<div id="clientContent"></div>
-
-</div>
-</div>
-
-
-<!-- AUTH -->
-
-<div class="modal" id="authModal">
-
-<div class="modal-box">
-
-<div class="modal-head">
-
-<h3 id="authTitle">👤 Connexion</h3>
-
-<button class="close" onclick="closeModal('authModal')">×</button>
-
-</div>
-
-<div class="tabs">
-
-<button class="tab active"
-id="loginTab"
-onclick="showLogin()">
-Connexion
-</button>
-
-<button class="tab"
-id="registerTab"
-onclick="showRegister()">
-Créer un compte
-</button>
-
-</div>
-
-<div id="authForm"></div>
-
-</div>
-</div>
+import {
+getStorage,
+ref as storageRef,
+uploadBytes,
+getDownloadURL
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
-<!-- TOAST -->
-
-<div class="toast" id="toast"></div>
-
-
-<script>
-
-/* =========================================================
-   FIREBASE
-========================================================= */
-
-const firebaseConfig = {
+const firebaseConfig={
 apiKey:"AIzaSyDdnP1tag1XPHw-vGXMFaoX9UwXz_kvru8",
 authDomain:"allo-parabole-24.firebaseapp.com",
 databaseURL:"https://allo-parabole-24-default-rtdb.europe-west1.firebasedatabase.app",
@@ -1157,20 +1245,20 @@ appId:"1:991490126700:web:3261b7494a259641bfb949",
 measurementId:"G-WK6SX4WV0M"
 };
 
-firebase.initializeApp(firebaseConfig);
 
-const auth=firebase.auth();
-const db=firebase.database();
+const app=initializeApp(firebaseConfig);
 
-let currentLang="fr";
+const auth=getAuth(app);
+const db=getDatabase(app);
+const storage=getStorage(app);
+
 let currentUser=null;
+let currentLang="fr";
 
 
-/* =========================================================
-   LANGUAGE
-========================================================= */
+/* LANGUAGE */
 
-function toggleLanguage(){
+window.toggleLanguage=function(){
 
 currentLang=currentLang==="fr"?"ar":"fr";
 
@@ -1183,230 +1271,705 @@ document.querySelectorAll("[data-fr]").forEach(el=>{
 
 const value=el.getAttribute("data-"+currentLang);
 
-if(value) el.innerHTML=value;
+if(value)el.innerHTML=value;
 
 });
 
-}
+};
 
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* MODALS */
 
-function toast(message){
+window.openModal=function(id){
+document.getElementById(id).classList.add("show");
+};
 
-const t=document.getElementById("toast");
-
-t.innerText=message;
-t.classList.add("show");
-
-setTimeout(()=>{
-t.classList.remove("show");
-},3000);
-
-}
-
-
-/* =========================================================
-   MODALS
-========================================================= */
-
-function closeModal(id){
+window.closeModal=function(id){
 document.getElementById(id).classList.remove("show");
+};
+
+
+/* AUTH */
+
+window.openClient=function(){
+
+openModal("clientModal");
+
+if(currentUser){
+showLoggedClient();
+}else{
+document.getElementById("loggedOutClient").classList.remove("hidden");
+document.getElementById("loggedClient").classList.add("hidden");
 }
 
-function openDiagnostic(){
+};
 
-document.getElementById("diagnosticModal").classList.add("show");
+window.openAuthFromClient=function(){
+closeModal("clientModal");
+openModal("authModal");
+};
+
+window.showLogin=function(){
+
+document.getElementById("loginForm").classList.remove("hidden");
+document.getElementById("registerForm").classList.add("hidden");
+
+document.getElementById("loginTab").classList.add("active");
+document.getElementById("registerTab").classList.remove("active");
+
+clearAlert();
+
+};
+
+window.showRegister=function(){
+
+document.getElementById("loginForm").classList.add("hidden");
+document.getElementById("registerForm").classList.remove("hidden");
+
+document.getElementById("loginTab").classList.remove("active");
+document.getElementById("registerTab").classList.add("active");
+
+clearAlert();
+
+};
+
+function showAlert(id,message,type="error"){
+
+const el=document.getElementById(id);
+
+el.innerText=message;
+el.className="alert show "+type;
 
 }
 
-function openServices(){
+function clearAlert(){
 
-const el=document.querySelector(".services");
+const el=document.getElementById("authAlert");
 
-if(el){
-window.scrollTo({
-top:el.offsetTop-30,
-behavior:"smooth"
-});
-}
-
-}
-
-function goHome(){
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+el.className="alert";
+el.innerText="";
 
 }
 
 
-/* =========================================================
-   BOOKING
-========================================================= */
+/* REGISTER */
 
-function openBooking(serviceName){
+window.registerUser=async function(){
 
-if(!currentUser){
+const name=document.getElementById("regName").value.trim();
+const email=document.getElementById("regEmail").value.trim();
+const phone=document.getElementById("regPhone").value.trim();
+const address=document.getElementById("regAddress").value.trim();
+const password=document.getElementById("regPassword").value;
+const password2=document.getElementById("regPassword2").value;
 
-document.getElementById("bookingModal").classList.remove("show");
-
-document.getElementById("authModal").classList.add("show");
-
-showLogin();
-
-toast(
-currentLang==="fr"
-?"Connectez-vous pour réserver."
-:"سجّل الدخول أولاً باش تقدر تحجز."
-);
-
+if(!name||!email||!phone||!address||!password){
+showAlert("authAlert",
+currentLang==="fr"?"Veuillez remplir tous les champs.":"يرجى ملء جميع المعلومات.",
+"error");
 return;
 }
 
-document.getElementById("bookingModal").classList.add("show");
+if(password!==password2){
+showAlert("authAlert",
+currentLang==="fr"?"Les mots de passe ne correspondent pas.":"كلمتا المرور غير متطابقتين.",
+"error");
+return;
+}
 
-if(serviceName){
+if(password.length<6){
+showAlert("authAlert",
+currentLang==="fr"?"Le mot de passe doit contenir au moins 6 caractères.":"كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل.",
+"error");
+return;
+}
 
-const select=document.getElementById("service");
+try{
 
-for(let i=0;i<select.options.length;i++){
+const credential=await createUserWithEmailAndPassword(
+auth,email,password
+);
 
-if(select.options[i].value===serviceName){
+const user=credential.user;
 
-select.value=serviceName;
-break;
+await updateProfile(user,{
+displayName:name
+});
+
+await set(ref(db,"clients/"+user.uid),{
+uid:user.uid,
+nom:name,
+email:email,
+telephone:phone,
+adresse:address,
+photo:"",
+points:0,
+createdAt:Date.now()
+});
+
+showAlert("authAlert",
+currentLang==="fr"
+?"Compte créé avec succès. Bienvenue !"
+:"تم إنشاء الحساب بنجاح. مرحبًا بك !",
+"success");
+
+setTimeout(()=>{
+closeModal("authModal");
+openClient();
+},800);
+
+}catch(error){
+
+showAlert(
+"authAlert",
+firebaseError(error.code),
+"error"
+);
 
 }
 
+};
+
+
+/* LOGIN */
+
+window.loginUser=async function(){
+
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+
+if(!email||!password){
+showAlert("authAlert",
+currentLang==="fr"?"Veuillez remplir les champs.":"يرجى ملء المعلومات.",
+"error");
+return;
 }
 
+try{
+
+await signInWithEmailAndPassword(auth,email,password);
+
+showAlert("authAlert",
+currentLang==="fr"?"Connexion réussie.":"تم تسجيل الدخول بنجاح.",
+"success");
+
+setTimeout(()=>{
+closeModal("authModal");
+openClient();
+},600);
+
+}catch(error){
+
+showAlert(
+"authAlert",
+firebaseError(error.code),
+"error"
+);
+
 }
 
-loadClientIntoBooking();
+};
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth,async user=>{
+
+currentUser=user;
+
+if(user){
+
+await loadClientProfile();
+
+}else{
+
+document.getElementById("loggedOutClient").classList.remove("hidden");
+document.getElementById("loggedClient").classList.add("hidden");
 
 }
 
+});
 
-/* =========================================================
-   LOAD CLIENT DATA
-========================================================= */
 
-function loadClientIntoBooking(){
+/* LOAD CLIENT */
 
-if(!currentUser) return;
+async function loadClientProfile(){
 
-db.ref("clients/"+currentUser.uid).once("value").then(snapshot=>{
+if(!currentUser)return;
 
-const data=snapshot.val();
+const snapshot=await get(
+ref(db,"clients/"+currentUser.uid)
+);
 
-if(!data) return;
+let data=snapshot.exists()?snapshot.val():{};
+
+document.getElementById("profileName").innerText=
+data.nom||currentUser.displayName||"Client";
+
+document.getElementById("profileEmail").innerText=
+data.email||currentUser.email||"";
+
+document.getElementById("pointsNumber").innerText=
+data.points||0;
+
+if(data.photo){
+document.getElementById("profilePhoto").src=data.photo;
+}
 
 document.getElementById("name").value=data.nom||"";
 document.getElementById("phone").value=data.telephone||"";
 document.getElementById("address").value=data.adresse||"";
 
-});
+}
+
+
+/* SHOW CLIENT */
+
+function showLoggedClient(){
+
+document.getElementById("loggedOutClient").classList.add("hidden");
+document.getElementById("loggedClient").classList.remove("hidden");
+
+loadClientProfile();
+
+showReservations();
 
 }
 
 
-/* =========================================================
-   SUBMIT BOOKING TO FIREBASE
-========================================================= */
+/* PROFILE PHOTO */
 
-function submitBooking(event){
+window.uploadProfilePhoto=async function(event){
+
+if(!currentUser)return;
+
+const file=event.target.files[0];
+
+if(!file)return;
+
+if(!file.type.startsWith("image/")){
+alert("Image uniquement");
+return;
+}
+
+if(file.size>5*1024*1024){
+alert(currentLang==="fr"
+?"Image trop grande. Maximum 5 MB."
+:"الصورة كبيرة جدًا. الحد الأقصى 5 ميغابايت.");
+return;
+}
+
+try{
+
+const photoRef=storageRef(
+storage,
+"profilePhotos/"+currentUser.uid
+);
+
+await uploadBytes(photoRef,file);
+
+const url=await getDownloadURL(photoRef);
+
+await update(
+ref(db,"clients/"+currentUser.uid),
+{photo:url}
+);
+
+document.getElementById("profilePhoto").src=url;
+
+}catch(error){
+
+alert(firebaseError(error.code));
+
+}
+
+};
+
+
+/* PROFILE */
+
+window.showProfile=async function(){
+
+if(!currentUser)return;
+
+const snap=await get(ref(db,"clients/"+currentUser.uid));
+
+const data=snap.exists()?snap.val():{};
+
+document.getElementById("clientContent").innerHTML=`
+
+<div class="item">
+
+<div class="item-title">
+${currentLang==="fr"?"⚙️ Mes informations":"⚙️ معلوماتي"}
+</div>
+
+<div class="form-group">
+<label>${currentLang==="fr"?"Nom complet":"الاسم الكامل"}</label>
+<input id="editName" value="${escapeHTML(data.nom||"")}">
+</div>
+
+<div class="form-group">
+<label>${currentLang==="fr"?"Téléphone":"الهاتف"}</label>
+<input id="editPhone" value="${escapeHTML(data.telephone||"")}">
+</div>
+
+<div class="form-group">
+<label>${currentLang==="fr"?"Adresse":"العنوان"}</label>
+<input id="editAddress" value="${escapeHTML(data.adresse||"")}">
+</div>
+
+<button class="primary" onclick="saveProfile()">
+${currentLang==="fr"?"💾 Enregistrer":"💾 حفظ المعلومات"}
+</button>
+
+</div>
+`;
+
+};
+
+
+window.saveProfile=async function(){
+
+if(!currentUser)return;
+
+const nom=document.getElementById("editName").value.trim();
+const telephone=document.getElementById("editPhone").value.trim();
+const adresse=document.getElementById("editAddress").value.trim();
+
+await update(ref(db,"clients/"+currentUser.uid),{
+nom,
+telephone,
+adresse
+});
+
+await updateProfile(currentUser,{
+displayName:nom
+});
+
+await loadClientProfile();
+
+document.getElementById("clientContent").innerHTML=`
+
+<div class="alert show success">
+${currentLang==="fr"
+?"✓ Informations mises à jour."
+:"✓ تم تحديث معلوماتك بنجاح."}
+</div>
+`;
+
+};
+
+
+/* RESERVATIONS */
+
+window.showReservations=async function(){
+
+if(!currentUser)return;
+
+document.getElementById("clientContent").innerHTML=`
+<div class="empty">⏳ ${currentLang==="fr"?"Chargement...":"جاري التحميل..."}</div>
+`;
+
+const snap=await get(ref(db,"reservations"));
+
+if(!snap.exists()){
+document.getElementById("clientContent").innerHTML=`
+<div class="empty">
+📅<br><br>
+${currentLang==="fr"?"Aucune réservation pour le moment.":"لا توجد حجوزات حاليًا."}
+</div>`;
+return;
+}
+
+const reservations=snap.val();
+
+let html="";
+
+Object.entries(reservations)
+.filter(([id,r])=>r.uid===currentUser.uid || r.email===currentUser.email)
+.sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0))
+.forEach(([id,r])=>{
+
+const status=r.status||"nouvelle";
+
+let cls="";
+
+if(status==="acceptée"||status==="acceptee")cls="accepted";
+if(status==="terminée")cls="finished";
+if(status==="encours")cls="progress";
+
+html+=`
+
+<div class="item">
+
+<div class="item-title">📅 ${escapeHTML(r.service||"Service")}</div>
+
+<div class="item-text">
+
+👤 ${escapeHTML(r.nom||"")}<br>
+📞 ${escapeHTML(r.telephone||"")}<br>
+📍 ${escapeHTML(r.adresse||"")}<br>
+🗓️ ${escapeHTML(r.date||"")} ${escapeHTML(r.period||"")}
+
+</div>
+
+<span class="status ${cls}">
+${statusText(status)}
+</span>
+
+</div>
+`;
+
+});
+
+if(!html){
+
+html=`
+<div class="empty">
+📅<br><br>
+${currentLang==="fr"
+?"Vous n'avez pas encore effectué de réservation."
+:"لم تقم بأي حجز بعد."}
+</div>
+`;
+
+}
+
+document.getElementById("clientContent").innerHTML=html;
+
+};
+
+
+/* NOTIFICATIONS */
+
+window.showNotifications=async function(){
+
+if(!currentUser)return;
+
+const snap=await get(
+ref(db,"notifications/"+currentUser.uid)
+);
+
+let html="";
+
+if(snap.exists()){
+
+Object.values(snap.val())
+.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0))
+.forEach(n=>{
+
+html+=`
+
+<div class="item">
+
+<div class="item-title">🔔 ${escapeHTML(n.title||"Notification")}</div>
+
+<div class="item-text">
+${escapeHTML(n.message||"")}
+</div>
+
+<span class="status accepted">
+${formatDate(n.createdAt)}
+</span>
+
+</div>
+
+`;
+
+});
+
+}
+
+if(!html){
+
+html=`
+<div class="empty">
+🔔<br><br>
+${currentLang==="fr"
+?"Aucune notification."
+:"لا توجد إشعارات."}
+</div>
+`;
+
+}
+
+document.getElementById("clientContent").innerHTML=html;
+
+};
+
+
+/* APPOINTMENTS */
+
+window.showAppointments=async function(){
+
+if(!currentUser)return;
+
+const snap=await get(
+ref(db,"rdv/"+currentUser.uid)
+);
+
+let html="";
+
+if(snap.exists()){
+
+Object.values(snap.val())
+.sort((a,b)=>(a.datetime||"").localeCompare(b.datetime||""))
+.forEach(r=>{
+
+html+=`
+
+<div class="item">
+
+<div class="item-title">🗓️ ${currentLang==="fr"?"Rendez-vous confirmé":"موعد مؤكد"}</div>
+
+<div class="item-text">
+📅 ${escapeHTML(r.datetime||"")}<br>
+🛠️ ${escapeHTML(r.service||"")}
+</div>
+
+<span class="status accepted">
+${currentLang==="fr"?"CONFIRMÉ":"مؤكد"}
+</span>
+
+</div>
+`;
+
+});
+
+}
+
+if(!html){
+
+html=`
+<div class="empty">
+🗓️<br><br>
+${currentLang==="fr"
+?"Aucun rendez-vous confirmé."
+:"لا يوجد موعد مؤكد حاليًا."}
+</div>
+`;
+
+}
+
+document.getElementById("clientContent").innerHTML=html;
+
+};
+
+
+/* BOOKING */
+
+window.openBooking=async function(serviceName){
+
+if(!currentUser){
+
+openModal("authModal");
+
+showLogin();
+
+return;
+}
+
+await loadClientProfile();
+
+openModal("bookingModal");
+
+if(serviceName){
+
+const select=document.getElementById("service");
+
+const option=[...select.options].find(
+o=>o.value===serviceName
+);
+
+if(option)select.value=serviceName;
+
+}
+
+};
+
+
+window.submitBooking=async function(event){
 
 event.preventDefault();
 
 if(!currentUser){
 
-toast(
+closeModal("bookingModal");
+openModal("authModal");
+return;
+}
+
+const service=document.getElementById("service").value;
+const name=document.getElementById("name").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const address=document.getElementById("address").value.trim();
+const date=document.getElementById("date").value;
+const period=document.getElementById("period").value;
+
+if(!name||!phone||!address||!date){
+
+showAlert(
+"bookingAlert",
 currentLang==="fr"
-?"Veuillez vous connecter."
-:"يجب تسجيل الدخول."
+?"Veuillez remplir tous les champs."
+:"يرجى ملء جميع المعلومات.",
+"error"
 );
 
 return;
 }
 
-const booking={
+try{
+
+const bookingRef=push(ref(db,"reservations"));
+
+await set(bookingRef,{
 
 uid:currentUser.uid,
+email:currentUser.email,
 
-nom:document.getElementById("name").value.trim(),
+nom:name,
+telephone:phone,
+adresse:address,
 
-telephone:document.getElementById("phone").value.trim(),
-
-adresse:document.getElementById("address").value.trim(),
-
-service:document.getElementById("service").value,
-
-date:document.getElementById("date").value,
-
-periode:document.getElementById("period").value,
+service:service,
+date:date,
+period:period,
 
 status:"nouvelle",
-
 price:"",
-
 createdAt:Date.now()
-
-};
-
-db.ref("reservations").push(booking)
-
-.then(()=>{
-
-return db.ref("clients/"+currentUser.uid).update({
-
-nom:booking.nom,
-
-telephone:booking.telephone,
-
-adresse:booking.adresse,
-
-email:currentUser.email
 
 });
 
-})
 
-.then(()=>{
+await update(
+ref(db,"clients/"+currentUser.uid),
+{
+nom:name,
+telephone:phone,
+adresse:address
+}
+);
 
-document.getElementById("bookingModal").querySelector(".modal-box").innerHTML=`
 
-<div class="modal-head">
+document.querySelector("#bookingModal .modal-box").innerHTML=`
 
-<h3>
-${currentLang==="fr"?"Demande envoyée":"تم إرسال الطلب"}
-</h3>
-
-<button class="close"
-onclick="closeModal('bookingModal')">
-×
-</button>
-
-</div>
-
-<div class="success">
+<div class="success-box">
 
 <div class="success-icon">✅</div>
 
 <h3>
 ${currentLang==="fr"
-?"Merci "+escapeHTML(booking.nom)+" !"
-:"شكرًا "+escapeHTML(booking.nom)+" !"}
+?"Demande envoyée !"
+:"تم إرسال الطلب بنجاح !"}
 </h3>
 
 <p>
 ${currentLang==="fr"
-?"Votre réservation a été enregistrée avec succès dans notre système. Vous pourrez suivre son état depuis votre espace client."
-:"تم تسجيل حجزك بنجاح في النظام. يمكنك متابعة حالة الطلب من حسابك."}
+?"Votre demande a été enregistrée. Vous recevrez une notification lorsque votre demande sera traitée."
+:"تم تسجيل طلبك. ستصلك إشعار عند معالجة طلبك."}
 </p>
 
 <button class="primary"
@@ -1417,98 +1980,64 @@ ${currentLang==="fr"?"Fermer":"إغلاق"}
 </div>
 `;
 
-toast(
-currentLang==="fr"
-?"Réservation enregistrée ✓"
-:"تم تسجيل الحجز ✓"
+}catch(error){
+
+showAlert(
+"bookingAlert",
+firebaseError(error.code)||"Erreur Firebase",
+"error"
 );
-
-})
-
-.catch(error=>{
-
-console.error(error);
-
-toast(
-currentLang==="fr"
-?"Erreur lors de l'enregistrement."
-:"حدث خطأ أثناء تسجيل الطلب."
-);
-
-});
 
 }
 
+};
 
-/* =========================================================
-   DIAGNOSTIC
-========================================================= */
 
-function diagnose(){
+/* DIAGNOSTIC */
+
+window.openDiagnostic=function(){
+openModal("diagnosticModal");
+};
+
+window.diagnose=function(){
 
 const signal=document.getElementById("signalProblem").value;
-
 const channels=document.getElementById("allChannels").value;
 
-const recent=document.getElementById("recentProblem").value;
-
 let result="";
-let service="Réglage parabole";
 
-if(signal==="yes" && channels==="yes"){
-
-result=currentLang==="fr"
-?"📡 Le problème semble lié au système de réception. Un réglage ou une vérification de la parabole peut être nécessaire."
-:"📡 المشكل يبدو متعلق بنظام الاستقبال. قد تحتاج إلى ضبط الصحن أو فحصه.";
-
-service="Réglage parabole";
-
-}
-
-else if(signal==="yes" && channels==="no"){
+if(signal==="yes"&&channels==="yes"){
 
 result=currentLang==="fr"
-?"🎯 Certaines fréquences ou chaînes peuvent nécessiter une recherche ou une vérification."
-:"🎯 بعض الترددات أو القنوات قد تحتاج إلى البحث أو الفحص.";
+?"📡 Un réglage ou une vérification de la parabole peut être nécessaire."
+:"📡 قد تحتاج إلى ضبط الصحن أو فحص نظام الاستقبال.";
 
-service="Récepteur / chaînes";
-
-}
-
-else if(signal==="no" && recent==="yes"){
+}else if(signal==="yes"&&channels==="no"){
 
 result=currentLang==="fr"
-?"🔎 Une vérification du récepteur, du câblage ou du téléviseur peut être nécessaire."
-:"🔎 قد يحتاج جهاز الاستقبال أو الكابل أو التلفاز إلى فحص.";
+?"🎯 Une recherche ou une vérification des fréquences peut être nécessaire."
+:"🎯 قد تحتاج إلى البحث عن القنوات أو فحص الترددات.";
 
-service="Récepteur / chaînes";
-
-}
-
-else{
+}else{
 
 result=currentLang==="fr"
-?"🛠️ Une vérification sur place permettra d'identifier précisément le problème."
-:"🛠️ الفحص في عين المكان سيساعد على تحديد المشكل بدقة.";
-
-service="Réglage & réception";
+?"🔎 Une vérification sur place permettra de déterminer précisément le problème."
+:"🔎 الفحص في عين المكان سيساعد على تحديد المشكل بدقة.";
 
 }
 
 document.getElementById("diagnosticContent").innerHTML=`
 
-<div class="success">
+<div class="success-box">
 
 <div class="success-icon">🔎</div>
 
-<h3>
-${currentLang==="fr"?"Résultat du diagnostic":"نتيجة التشخيص"}
-</h3>
+<h3>${currentLang==="fr"?"Résultat":"النتيجة"}</h3>
 
 <p>${result}</p>
 
 <button class="primary"
-onclick="closeModal('diagnosticModal');openBooking('${service}')">
+onclick="closeModal('diagnosticModal');openBooking('Réglage parabole')">
 
 ${currentLang==="fr"
 ?"📅 Demander une intervention"
@@ -1520,688 +2049,146 @@ ${currentLang==="fr"
 
 `;
 
-}
-
-
-/* =========================================================
-   AUTH UI
-========================================================= */
-
-function showLogin(){
-
-document.getElementById("loginTab").classList.add("active");
-
-document.getElementById("registerTab").classList.remove("active");
-
-document.getElementById("authTitle").innerText=
-currentLang==="fr"?"👤 Connexion":"👤 تسجيل الدخول";
-
-document.getElementById("authForm").innerHTML=`
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Email":"البريد الإلكتروني"}</label>
-
-<input type="email"
-id="loginEmail"
-placeholder="example@email.com"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Mot de passe":"كلمة المرور"}</label>
-
-<input type="password"
-id="loginPassword"
-placeholder="••••••••"
-required>
-
-</div>
-
-<button class="primary"
-onclick="login()">
-
-${currentLang==="fr"
-?"SE CONNECTER"
-:"تسجيل الدخول"}
-
-</button>
-
-`;
-
-}
-
-function showRegister(){
-
-document.getElementById("loginTab").classList.remove("active");
-
-document.getElementById("registerTab").classList.add("active");
-
-document.getElementById("authTitle").innerText=
-currentLang==="fr"?"✨ Créer un compte":"✨ إنشاء حساب";
-
-document.getElementById("authForm").innerHTML=`
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Nom complet":"الاسم الكامل"}</label>
-
-<input type="text"
-id="registerName"
-placeholder="${currentLang==="fr"?"Votre nom":"اسمك الكامل"}">
-
-</div>
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Email":"البريد الإلكتروني"}</label>
-
-<input type="email"
-id="registerEmail"
-placeholder="example@email.com">
-
-</div>
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Téléphone":"الهاتف"}</label>
-
-<input type="tel"
-id="registerPhone"
-placeholder="0559...">
-
-</div>
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Adresse":"العنوان"}</label>
-
-<input type="text"
-id="registerAddress"
-placeholder="${currentLang==="fr"?"Guelma...":"ڨالمة..."}">
-
-</div>
-
-<div class="form-group">
-
-<label>${currentLang==="fr"?"Mot de passe":"كلمة المرور"}</label>
-
-<input type="password"
-id="registerPassword"
-placeholder="6 caractères minimum">
-
-</div>
-
-<button class="primary"
-onclick="register()">
-
-${currentLang==="fr"
-?"CRÉER MON COMPTE"
-:"إنشاء حساب"}
-
-</button>
-
-`;
-
-}
-
-
-/* =========================================================
-   REGISTER
-========================================================= */
-
-function register(){
-
-const nom=document.getElementById("registerName").value.trim();
-
-const email=document.getElementById("registerEmail").value.trim();
-
-const telephone=document.getElementById("registerPhone").value.trim();
-
-const adresse=document.getElementById("registerAddress").value.trim();
-
-const password=document.getElementById("registerPassword").value;
-
-if(!nom || !email || !telephone || !adresse || password.length<6){
-
-toast(
-currentLang==="fr"
-?"Remplissez tous les champs. Mot de passe : 6 caractères minimum."
-:"أكمل جميع المعلومات. كلمة السر لازم تكون 6 أحرف على الأقل."
-);
-
-return;
-}
-
-auth.createUserWithEmailAndPassword(email,password)
-
-.then(result=>{
-
-const uid=result.user.uid;
-
-return db.ref("clients/"+uid).set({
-
-uid:uid,
-
-nom:nom,
-
-email:email,
-
-telephone:telephone,
-
-adresse:adresse,
-
-points:0,
-
-createdAt:Date.now()
-
-});
-
-})
-
-.then(()=>{
-
-toast(
-currentLang==="fr"
-?"Compte créé avec succès ✓"
-:"تم إنشاء الحساب بنجاح ✓"
-);
-
-closeModal("authModal");
-
-openClient();
-
-})
-
-.catch(error=>{
-
-let msg=error.message;
-
-if(error.code==="auth/email-already-in-use"){
-
-msg=currentLang==="fr"
-?"Cet email est déjà utilisé."
-:"هذا البريد الإلكتروني مستعمل من قبل.";
-
-}
-
-if(error.code==="auth/invalid-email"){
-
-msg=currentLang==="fr"
-?"Adresse email invalide."
-:"البريد الإلكتروني غير صحيح.";
-
-}
-
-if(error.code==="auth/weak-password"){
-
-msg=currentLang==="fr"
-?"Mot de passe trop faible."
-:"كلمة المرور ضعيفة.";
-
-}
-
-toast(msg);
-
-});
-
-}
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
-function login(){
-
-const email=document.getElementById("loginEmail").value.trim();
-
-const password=document.getElementById("loginPassword").value;
-
-if(!email || !password){
-
-toast(
-currentLang==="fr"
-?"Entrez votre email et votre mot de passe."
-:"أدخل البريد الإلكتروني وكلمة المرور."
-);
-
-return;
-}
-
-auth.signInWithEmailAndPassword(email,password)
-
-.then(()=>{
-
-toast(
-currentLang==="fr"
-?"Connexion réussie ✓"
-:"تم تسجيل الدخول ✓"
-);
-
-closeModal("authModal");
-
-openClient();
-
-})
-
-.catch(error=>{
-
-let msg;
-
-if(error.code==="auth/invalid-credential" ||
-error.code==="auth/wrong-password" ||
-error.code==="auth/user-not-found"){
-
-msg=currentLang==="fr"
-?"Email ou mot de passe incorrect."
-:"البريد الإلكتروني أو كلمة المرور غير صحيحة.";
-
-}else{
-
-msg=error.message;
-
-}
-
-toast(msg);
-
-});
-
-}
-
-
-/* =========================================================
-   CLIENT SPACE
-========================================================= */
-
-function openClient(){
-
-document.getElementById("clientModal").classList.add("show");
-
-renderClient();
-
-}
-
-function renderClient(){
-
-const content=document.getElementById("clientContent");
-
-if(!currentUser){
-
-content.innerHTML=`
-
-<div class="diagnostic">
-
-<div class="diagnostic-icon">👤</div>
-
-<h3>
-${currentLang==="fr"
-?"Votre espace personnel"
-:"حسابك الشخصي"}
-</h3>
-
-<p>
-${currentLang==="fr"
-?"Connectez-vous ou créez un compte pour réserver vos interventions et suivre vos demandes."
-:"سجّل الدخول أو أنشئ حسابًا لحجز التدخلات ومتابعة طلباتك."}
-</p>
-
-<button class="primary"
-onclick="closeModal('clientModal');document.getElementById('authModal').classList.add('show');showLogin()">
-
-${currentLang==="fr"
-?"SE CONNECTER"
-:"تسجيل الدخول"}
-
-</button>
-
-<br><br>
-
-<button class="secondary"
-onclick="closeModal('clientModal');document.getElementById('authModal').classList.add('show');showRegister()">
-
-${currentLang==="fr"
-?"✨ CRÉER UN COMPTE"
-:"✨ إنشاء حساب"}
-
-</button>
-
-</div>
-
-`;
-
-return;
-}
-
-db.ref("clients/"+currentUser.uid).once("value")
-
-.then(snapshot=>{
-
-const data=snapshot.val() || {};
-
-const points=data.points || 0;
-
-content.innerHTML=`
-
-<div class="profile-box">
-
-<div class="profile-avatar">
-${escapeHTML((data.nom||"A").charAt(0).toUpperCase())}
-</div>
-
-<h3>${escapeHTML(data.nom||"Client")}</h3>
-
-<small style="color:var(--muted)">
-${escapeHTML(data.email||currentUser.email||"")}
-</small>
-
-</div>
-
-<div class="points">
-
-<b>${points}</b>
-
-<span>
-${currentLang==="fr"
-?"Points de fidélité"
-:"نقاط الوفاء"}
-</span>
-
-</div>
-
-<br>
-
-<div class="info-card">
-
-<strong>📞 ${escapeHTML(data.telephone||"")}</strong>
-
-<small>
-📍 ${escapeHTML(data.adresse||"")}
-</small>
-
-</div>
-
-<button class="primary"
-onclick="loadReservations()">
-
-📋 ${currentLang==="fr"
-?"Mes réservations"
-:"حجوزاتي"}
-
-</button>
-
-<br><br>
-
-<button class="secondary"
-onclick="loadNotifications()">
-
-🔔 ${currentLang==="fr"
-?"Mes notifications"
-:"إشعاراتي"}
-
-</button>
-
-<br><br>
-
-<button class="secondary"
-onclick="openBooking('')">
-
-📅 ${currentLang==="fr"
-?"Nouvelle réservation"
-:"حجز جديد"}
-
-</button>
-
-<br><br>
-
-<button class="secondary"
-onclick="logout()">
-
-🚪 ${currentLang==="fr"
-?"Se déconnecter"
-:"تسجيل الخروج"}
-
-</button>
-
-`;
-
-});
-
-}
-
-
-/* =========================================================
-   RESERVATIONS
-========================================================= */
-
-function loadReservations(){
-
-if(!currentUser) return;
-
-db.ref("reservations")
-.orderByChild("uid")
-.equalTo(currentUser.uid)
-.once("value")
-
-.then(snapshot=>{
-
-let html=`
-
-<div class="modal-head">
-
-<h3>
-📋 ${currentLang==="fr"
-?"Mes réservations"
-:"حجوزاتي"}
-</h3>
-
-<button class="close"
-onclick="renderClient()">
-×
-</button>
-
-</div>
-`;
-
-let found=false;
-
-snapshot.forEach(child=>{
-
-found=true;
-
-const r=child.val();
-
-const status=r.status||"nouvelle";
-
-html+=`
-
-<div class="info-card">
-
-<strong>📌 ${escapeHTML(r.service||"Service")}</strong>
-
-<small>
-📅 ${escapeHTML(r.date||"")}<br>
-🕐 ${escapeHTML(r.periode||"")}<br>
-📍 ${escapeHTML(r.adresse||"")}
-</small>
-
-<span class="status ${status}">
-${translateStatus(status)}
-</span>
-
-</div>
-
-`;
-
-});
-
-if(!found){
-
-html+=`
-
-<div class="empty">
-
-📭<br><br>
-
-${currentLang==="fr"
-?"Vous n'avez encore aucune réservation."
-:"ليس لديك أي حجز حاليًا."}
-
-</div>
-
-`;
-
-}
-
-document.getElementById("clientContent").innerHTML=html;
-
-});
-
-}
-
-
-/* =========================================================
-   NOTIFICATIONS
-========================================================= */
-
-function loadNotifications(){
-
-if(!currentUser) return;
-
-db.ref("notifications/"+currentUser.uid)
-.once("value")
-
-.then(snapshot=>{
-
-let html=`
-
-<div class="modal-head">
-
-<h3>
-🔔 ${currentLang==="fr"
-?"Notifications"
-:"الإشعارات"}
-</h3>
-
-<button class="close"
-onclick="renderClient()">
-×
-</button>
-
-</div>
-`;
-
-let found=false;
-
-snapshot.forEach(child=>{
-
-found=true;
-
-const n=child.val();
-
-html+=`
-
-<div class="info-card">
-
-<strong>🔔 ${escapeHTML(n.title||"Allo Parabole")}</strong>
-
-<small>
-${escapeHTML(n.message||"")}
-</small>
-
-</div>
-
-`;
-
-});
-
-if(!found){
-
-html+=`
-
-<div class="empty">
-
-🔕<br><br>
-
-${currentLang==="fr"
-?"Aucune notification pour le moment."
-:"لا توجد إشعارات حاليًا."}
-
-</div>
-
-`;
-
-}
-
-document.getElementById("clientContent").innerHTML=html;
-
-});
-
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-function translateStatus(status){
-
-const map={
-
-nouvelle:currentLang==="fr"?"Nouvelle":"جديد",
-
-encours:currentLang==="fr"?"En cours":"قيد المعالجة",
-
-acceptee:currentLang==="fr"?"Acceptée":"مقبول",
-
-terminee:currentLang==="fr"?"Terminée":"مكتمل"
-
 };
 
-return map[status]||status;
 
-}
+/* LOGOUT */
 
+window.logoutUser=async function(){
 
-/* =========================================================
-   LOGOUT
-========================================================= */
-
-function logout(){
-
-auth.signOut()
-
-.then(()=>{
-
-toast(
-currentLang==="fr"
-?"Déconnexion réussie."
-:"تم تسجيل الخروج."
-);
+await signOut(auth);
 
 closeModal("clientModal");
 
+};
+
+
+/* NAV */
+
+window.openServices=function(){
+
+const el=document.querySelector(".services");
+
+if(el){
+
+window.scrollTo({
+top:el.offsetTop-30,
+behavior:"smooth"
 });
 
 }
 
+};
 
-/* =========================================================
-   AUTH STATE
-========================================================= */
+window.goHome=function(){
 
-auth.onAuthStateChanged(user=>{
-
-currentUser=user;
-
+window.scrollTo({
+top:0,
+behavior:"smooth"
 });
 
+};
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
+
+/* HELPERS */
+
+function firebaseError(code){
+
+const messages={
+
+"auth/email-already-in-use":
+"Cette adresse email est déjà utilisée.",
+
+"auth/invalid-email":
+"Adresse email invalide.",
+
+"auth/weak-password":
+"Mot de passe trop faible.",
+
+"auth/invalid-credential":
+"Email ou mot de passe incorrect.",
+
+"auth/user-not-found":
+"Compte introuvable.",
+
+"auth/wrong-password":
+"Mot de passe incorrect.",
+
+"auth/network-request-failed":
+"Problème de connexion Internet."
+
+};
+
+if(currentLang==="ar"){
+
+const ar={
+
+"auth/email-already-in-use":"هذا البريد الإلكتروني مستعمل مسبقًا.",
+"auth/invalid-email":"البريد الإلكتروني غير صحيح.",
+"auth/weak-password":"كلمة المرور ضعيفة.",
+"auth/invalid-credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+"auth/user-not-found":"الحساب غير موجود.",
+"auth/wrong-password":"كلمة المرور غير صحيحة.",
+"auth/network-request-failed":"تحقق من اتصال الإنترنت."
+
+};
+
+return ar[code]||"حدث خطأ. حاول مرة أخرى.";
+
+}
+
+return messages[code]||"Une erreur est survenue. Veuillez réessayer.";
+
+}
+
+
+function statusText(status){
+
+if(currentLang==="ar"){
+
+const ar={
+nouvelle:"جديد",
+encours:"قيد المعالجة",
+acceptée:"مقبول",
+acceptee:"مقبول",
+terminée:"منتهي"
+};
+
+return ar[status]||status;
+
+}
+
+const fr={
+nouvelle:"NOUVELLE",
+encours:"EN COURS",
+acceptée:"ACCEPTÉE",
+acceptee:"ACCEPTÉE",
+terminée:"TERMINÉE"
+};
+
+return fr[status]||status;
+
+}
+
+
+function formatDate(timestamp){
+
+if(!timestamp)return"";
+
+try{
+
+return new Date(timestamp).toLocaleDateString(
+currentLang==="fr"?"fr-FR":"ar-DZ"
+);
+
+}catch(e){
+
+return"";
+
+}
+
+}
+
 
 function escapeHTML(value){
 
@@ -2215,9 +2202,7 @@ return String(value||"")
 }
 
 
-/* =========================================================
-   CLOSE MODALS OUTSIDE
-========================================================= */
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
 
 window.addEventListener("click",function(event){
 
@@ -2234,9 +2219,7 @@ modal.classList.remove("show");
 });
 
 
-/* =========================================================
-   DEFAULT DATE
-========================================================= */
+/* PREVENT OLD DATE */
 
 const dateInput=document.getElementById("date");
 
@@ -2245,9 +2228,7 @@ if(dateInput){
 const today=new Date();
 
 const yyyy=today.getFullYear();
-
 const mm=String(today.getMonth()+1).padStart(2,"0");
-
 const dd=String(today.getDate()).padStart(2,"0");
 
 dateInput.min=`${yyyy}-${mm}-${dd}`;
