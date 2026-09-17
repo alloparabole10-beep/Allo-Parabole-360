@@ -1,0 +1,13 @@
+{
+  "name": "Allo Parabole 360°",
+  "short_name": "Allo Parabole",
+  "description": "Allo Parabole 360° - Services parabole, TV, réception et réservation à Guelma.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0f19",
+  "theme_color": "#0b0f19",
+  "lang": "fr",
+  "dir": "ltr"
+}
