@@ -1,1020 +1,908 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0f19">
-  <meta name="description" content="Allo Parabole 360° - Tout ce qui concerne le monde de la vision.">
-  <title>Allo Parabole 360°</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --bg: #080b12;
-      --bg2: #101624;
-      --card: rgba(255,255,255,0.055);
-      --border: rgba(255,255,255,0.10);
-      --gold: #ffd166;
-      --orange: #ff9f1c;
-      --white: #ffffff;
-      --muted: #aab2c0;
-      --green: #3ddc97;
-      --red: #ff5c5c;
-    }
-
-    body {
-      font-family: 'Montserrat', 'Cairo', sans-serif;
-      background:
-        radial-gradient(circle at 90% 5%, rgba(255,159,28,.13), transparent 30%),
-        radial-gradient(circle at 0% 40%, rgba(255,209,102,.07), transparent 25%),
-        var(--bg);
-      color: var(--white);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-    }
-
-    .app {
-      max-width: 600px;
-      margin: auto;
-      min-height: 100vh;
-      padding-bottom: 95px;
-    }
-
-    /* HEADER */
-
-    header {
-      padding: 22px 20px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255,209,102,.65);
-      box-shadow: 0 0 25px rgba(255,159,28,.20);
-    }
-
-    .brand-text h1 {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: .5px;
-    }
-
-    .brand-text span {
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 1px;
-    }
-
-    .lang-btn {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: white;
-      padding: 9px 12px;
-      border-radius: 13px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 38px 20px 25px;
-    }
-
-    .hero .small {
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
-    }
-
-    .hero h2 {
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .hero h2 span {
-      background: linear-gradient(90deg, var(--gold), var(--orange));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-      max-width: 500px;
-    }
-
-    /* MAIN ACTION */
-
-    .main-action {
-      margin: 10px 20px 28px;
-      padding: 22px;
-      border-radius: 25px;
-      background:
-        linear-gradient(135deg, rgba(255,159,28,.17), rgba(255,209,102,.04)),
-        var(--card);
-      border: 1px solid rgba(255,159,28,.22);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .main-action::after {
-      content: "✦";
-      position: absolute;
-      right: 20px;
-      top: 12px;
-      color: rgba(255,209,102,.18);
-      font-size: 70px;
-    }
-
-    .main-action h3 {
-      font-size: 18px;
-      margin-bottom: 7px;
-    }
-
-    .main-action p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 17px;
-    }
-
-    .primary {
-      width: 100%;
-      border: 0;
-      padding: 15px;
-      border-radius: 15px;
-      background: linear-gradient(90deg, var(--orange), var(--gold));
-      color: #111;
-      font-weight: 800;
-      box-shadow: 0 8px 25px rgba(255,159,28,.18);
-    }
-
-    .primary:active {
-      transform: scale(.98);
-    }
-
-    /* SECTION */
-
-    .section {
-      padding: 0 20px;
-      margin-bottom: 30px;
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .section-title h3 {
-      font-size: 19px;
-    }
-
-    .section-title span {
-      color: var(--gold);
-      font-size: 11px;
-    }
-
-    /* PROBLEM GRID */
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 11px;
-    }
-
-    .problem {
-      min-height: 110px;
-      padding: 16px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 19px;
-      transition: .25s;
-    }
-
-    .problem:active {
-      transform: scale(.97);
-      border-color: var(--gold);
-    }
-
-    .problem-icon {
-      font-size: 26px;
-      margin-bottom: 11px;
-    }
-
-    .problem strong {
-      display: block;
-      font-size: 12px;
-      line-height: 1.4;
-    }
-
-    .problem small {
-      color: var(--muted);
-      display: block;
-      margin-top: 4px;
-      font-size: 10px;
-    }
-
-    /* DIAGNOSTIC */
-
-    .diagnostic {
-      padding: 20px;
-      border-radius: 23px;
-      background: linear-gradient(145deg, #131c2d, #0e1420);
-      border: 1px solid var(--border);
-    }
-
-    .diagnostic-icon {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    .diagnostic h3 {
-      margin-bottom: 7px;
-    }
-
-    .diagnostic p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .secondary {
-      border: 1px solid rgba(255,209,102,.35);
-      background: rgba(255,209,102,.07);
-      color: var(--gold);
-      padding: 12px 16px;
-      border-radius: 13px;
-      font-weight: 700;
-      width: 100%;
-    }
-
-    /* SERVICES */
-
-    .services {
-      display: grid;
-      gap: 11px;
-    }
-
-    .service {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 15px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-    }
-
-    .service:active {
-      transform: scale(.98);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,159,28,.10);
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-
-    .service-info {
-      flex: 1;
-    }
-
-    .service-info strong {
-      font-size: 13px;
-      display: block;
-    }
-
-    .service-info small {
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.5;
-    }
-
-    .arrow {
-      color: var(--gold);
-      font-size: 24px;
-    }
-
-    /* PROMO */
-
-    .promo {
-      padding: 21px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,209,102,.2);
-      background:
-        linear-gradient(135deg, rgba(255,209,102,.10), rgba(255,159,28,.03));
-    }
-
-    .promo .tag {
-      display: inline-block;
-      padding: 5px 9px;
-      background: rgba(255,159,28,.16);
-      color: var(--gold);
-      border-radius: 8px;
-      font-size: 9px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .promo h3 {
-      font-size: 18px;
-      margin-bottom: 7px;
-    }
-
-    .promo p {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    /* NAV */
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(600px, 100%);
-      height: 78px;
-      padding: 10px 12px;
-      background: rgba(9,12,19,.92);
-      backdrop-filter: blur(18px);
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      z-index: 20;
-    }
-
-    .nav-btn {
-      background: transparent;
-      border: 0;
-      color: #7f8795;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .nav-btn span {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 3px;
-    }
-
-    .nav-btn.active {
-      color: var(--gold);
-    }
-
-    /* MODAL */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(7px);
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 50;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-box {
-      width: min(600px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 24px 20px 35px;
-      background: #101623;
-      border: 1px solid var(--border);
-      border-radius: 27px 27px 0 0;
-      animation: up .25s ease;
-    }
-
-    @keyframes up {
-      from {
-        transform: translateY(100%);
-      }
-
-      to {
-        transform: translateY(0);
-      }
-    }
-
-    .modal-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .modal-head h3 {
-      font-size: 20px;
-    }
-
-    .close {
-      border: 0;
-      background: rgba(255,255,255,.07);
-      color: white;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      font-size: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-group label {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-      margin-bottom: 7px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 13px;
-      border: 1px solid var(--border);
-      outline: none;
-      background: rgba(255,255,255,.05);
-      color: white;
-      font-family: inherit;
-      font-size: 14px;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: rgba(255,209,102,.55);
-    }
-
-    .form-group option {
-      background: #101623;
-    }
-
-    .success {
-      text-align: center;
-      padding: 20px 5px;
-    }
-
-    .success-icon {
-      font-size: 55px;
-      margin-bottom: 12px;
-    }
-
-    .success p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 13px;
-      margin: 10px 0 20px;
-    }
-
-    .error-box {
-      text-align: center;
-      padding: 20px 5px;
-    }
-
-    .error-icon {
-      font-size: 50px;
-      margin-bottom: 12px;
-    }
-
-    .error-box p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 13px;
-      margin: 10px 0 20px;
-    }
-
-    .loading {
-      opacity: .65;
-      pointer-events: none;
-    }
-
-    /* RTL */
-
-    body.rtl {
-      direction: rtl;
-      font-family: 'Cairo', sans-serif;
-    }
-
-    body.rtl .brand,
-    body.rtl .service {
-      direction: rtl;
-    }
-
-    body.rtl .main-action::after {
-      right: auto;
-      left: 20px;
-    }
-
-    body.rtl .arrow {
-      transform: rotate(180deg);
-    }
-
-    @media (min-width: 601px) {
-      .bottom-nav {
-        border-left: 1px solid var(--border);
-        border-right: 1px solid var(--border);
-        border-radius: 20px 20px 0 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="Allo Parabole 360° - Votre solution pour tout ce qui concerne le monde de la vision.">
+<title>Allo Parabole 360°</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+:root{
+--bg:#080b12;
+--bg2:#101624;
+--card:rgba(255,255,255,.055);
+--border:rgba(255,255,255,.11);
+--gold:#ffd166;
+--orange:#ff9f1c;
+--white:#fff;
+--muted:#aab2c0;
+--green:#3ddc97;
+--red:#ff5c7a;
+}
+
+body{
+font-family:'Montserrat','Cairo',sans-serif;
+background:
+radial-gradient(circle at 90% 5%,rgba(255,159,28,.14),transparent 30%),
+radial-gradient(circle at 0% 40%,rgba(255,209,102,.07),transparent 25%),
+var(--bg);
+color:var(--white);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+button,input,select{
+font-family:inherit
+}
+
+button{
+cursor:pointer
+}
+
+.app{
+max-width:600px;
+margin:auto;
+min-height:100vh;
+padding-bottom:100px
+}
+
+/* HEADER */
+
+header{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px
+}
+
+.logo{
+width:54px;
+height:54px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid rgba(255,209,102,.65);
+box-shadow:0 0 25px rgba(255,159,28,.2)
+}
+
+.brand-text h1{
+font-size:16px;
+font-weight:800;
+letter-spacing:.5px
+}
+
+.brand-text span{
+font-size:9px;
+color:var(--gold);
+letter-spacing:1px
+}
+
+.lang-btn{
+border:1px solid var(--border);
+background:var(--card);
+color:white;
+padding:9px 12px;
+border-radius:13px
+}
+
+/* HERO */
+
+.hero{
+padding:38px 20px 25px
+}
+
+.hero .small{
+color:var(--gold);
+font-size:12px;
+font-weight:700;
+letter-spacing:1.5px;
+margin-bottom:12px
+}
+
+.hero h2{
+font-size:34px;
+line-height:1.15;
+font-weight:800;
+margin-bottom:14px
+}
+
+.hero h2 span{
+background:linear-gradient(90deg,var(--gold),var(--orange));
+-webkit-background-clip:text;
+color:transparent
+}
+
+.hero p{
+color:var(--muted);
+line-height:1.7;
+font-size:14px
+}
+
+/* MAIN */
+
+.main-action{
+margin:10px 20px 28px;
+padding:22px;
+border-radius:25px;
+background:
+linear-gradient(135deg,rgba(255,159,28,.17),rgba(255,209,102,.04)),
+var(--card);
+border:1px solid rgba(255,159,28,.22)
+}
+
+.main-action h3{
+font-size:18px;
+margin-bottom:7px
+}
+
+.main-action p{
+color:var(--muted);
+font-size:12px;
+margin-bottom:17px
+}
+
+.primary{
+width:100%;
+border:0;
+padding:15px;
+border-radius:15px;
+background:linear-gradient(90deg,var(--orange),var(--gold));
+color:#111;
+font-weight:800;
+box-shadow:0 8px 25px rgba(255,159,28,.18)
+}
+
+.secondary{
+width:100%;
+border:1px solid rgba(255,209,102,.35);
+background:rgba(255,209,102,.07);
+color:var(--gold);
+padding:13px;
+border-radius:13px;
+font-weight:700
+}
+
+.section{
+padding:0 20px;
+margin-bottom:30px
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px
+}
+
+.section-title h3{
+font-size:19px
+}
+
+.section-title span{
+color:var(--gold);
+font-size:10px
+}
+
+/* PROBLEMS */
+
+.problem-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px
+}
+
+.problem{
+min-height:110px;
+padding:16px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:19px;
+transition:.2s
+}
+
+.problem:active{
+transform:scale(.97)
+}
+
+.problem-icon{
+font-size:26px;
+margin-bottom:10px
+}
+
+.problem strong{
+display:block;
+font-size:12px;
+line-height:1.4
+}
+
+.problem small{
+color:var(--muted);
+display:block;
+margin-top:4px;
+font-size:10px
+}
+
+/* DIAGNOSTIC */
+
+.diagnostic{
+padding:20px;
+border-radius:23px;
+background:linear-gradient(145deg,#131c2d,#0e1420);
+border:1px solid var(--border)
+}
+
+.diagnostic-icon{
+font-size:35px;
+margin-bottom:10px
+}
+
+.diagnostic h3{
+margin-bottom:7px
+}
+
+.diagnostic p{
+color:var(--muted);
+font-size:12px;
+line-height:1.6;
+margin-bottom:15px
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+gap:11px
+}
+
+.service{
+display:flex;
+align-items:center;
+gap:14px;
+padding:15px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:17px
+}
+
+.service-icon{
+width:48px;
+height:48px;
+border-radius:14px;
+display:grid;
+place-items:center;
+background:rgba(255,159,28,.1);
+font-size:24px;
+flex-shrink:0
+}
+
+.service-info{
+flex:1
+}
+
+.service-info strong{
+font-size:13px;
+display:block
+}
+
+.service-info small{
+color:var(--muted);
+font-size:10px;
+line-height:1.5
+}
+
+.arrow{
+color:var(--gold);
+font-size:25px
+}
+
+/* PROMO */
+
+.promo{
+padding:21px;
+border-radius:22px;
+border:1px solid rgba(255,209,102,.2);
+background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(255,159,28,.03))
+}
+
+.promo .tag{
+display:inline-block;
+padding:5px 9px;
+background:rgba(255,159,28,.16);
+color:var(--gold);
+border-radius:8px;
+font-size:9px;
+font-weight:800;
+margin-bottom:10px
+}
+
+.promo h3{
+font-size:18px;
+margin-bottom:7px
+}
+
+.promo p{
+color:var(--muted);
+font-size:11px;
+line-height:1.6
+}
+
+/* NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:min(600px,100%);
+height:78px;
+padding:10px 12px;
+background:rgba(9,12,19,.94);
+backdrop-filter:blur(18px);
+border-top:1px solid var(--border);
+display:grid;
+grid-template-columns:repeat(4,1fr);
+z-index:20
+}
+
+.nav-btn{
+background:transparent;
+border:0;
+color:#7f8795;
+font-size:10px;
+font-weight:600
+}
+
+.nav-btn span{
+display:block;
+font-size:22px;
+margin-bottom:3px
+}
+
+.nav-btn.active{
+color:var(--gold)
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(7px);
+display:none;
+align-items:flex-end;
+justify-content:center;
+z-index:100
+}
+
+.modal.show{
+display:flex
+}
+
+.modal-box{
+width:min(600px,100%);
+max-height:92vh;
+overflow-y:auto;
+padding:24px 20px 35px;
+background:#101623;
+border:1px solid var(--border);
+border-radius:27px 27px 0 0;
+animation:up .25s ease
+}
+
+@keyframes up{
+from{transform:translateY(100%)}
+to{transform:translateY(0)}
+}
+
+.modal-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px
+}
+
+.modal-head h3{
+font-size:20px
+}
+
+.close{
+border:0;
+background:rgba(255,255,255,.07);
+color:white;
+width:38px;
+height:38px;
+border-radius:50%;
+font-size:20px
+}
+
+/* FORMS */
+
+.form-group{
+margin-bottom:14px
+}
+
+.form-group label{
+display:block;
+color:var(--muted);
+font-size:11px;
+margin-bottom:7px
+}
+
+.form-group input,
+.form-group select{
+width:100%;
+padding:14px;
+border-radius:13px;
+border:1px solid var(--border);
+outline:none;
+background:rgba(255,255,255,.05);
+color:white
+}
+
+.form-group option{
+background:#101623
+}
+
+.form-group input::placeholder{
+color:#6f7888
+}
+
+/* TABS */
+
+.tabs{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-bottom:18px
+}
+
+.tab{
+border:1px solid var(--border);
+background:var(--card);
+color:var(--muted);
+padding:12px;
+border-radius:12px;
+font-weight:700
+}
+
+.tab.active{
+background:rgba(255,159,28,.15);
+border-color:var(--orange);
+color:var(--gold)
+}
+
+/* CARDS */
+
+.info-card{
+padding:16px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:17px;
+margin-bottom:10px
+}
+
+.info-card strong{
+display:block;
+font-size:13px;
+margin-bottom:6px
+}
+
+.info-card small{
+color:var(--muted);
+font-size:11px;
+line-height:1.6
+}
+
+.status{
+display:inline-block;
+margin-top:8px;
+padding:5px 9px;
+border-radius:8px;
+font-size:9px;
+font-weight:800
+}
+
+.status.nouvelle{
+background:rgba(255,159,28,.14);
+color:var(--gold)
+}
+
+.status.encours{
+background:rgba(255,209,102,.12);
+color:var(--gold)
+}
+
+.status.acceptee{
+background:rgba(61,220,151,.12);
+color:var(--green)
+}
+
+.status.terminee{
+background:rgba(255,255,255,.08);
+color:var(--muted)
+}
+
+.empty{
+text-align:center;
+padding:30px 10px;
+color:var(--muted);
+font-size:12px
+}
+
+.success{
+text-align:center;
+padding:20px 5px
+}
+
+.success-icon{
+font-size:55px;
+margin-bottom:12px
+}
+
+.success p{
+color:var(--muted);
+line-height:1.7;
+font-size:13px;
+margin:10px 0 20px
+}
+
+/* PROFILE */
+
+.profile-box{
+text-align:center;
+padding:10px 0 20px
+}
+
+.profile-avatar{
+width:75px;
+height:75px;
+margin:auto;
+border-radius:50%;
+display:grid;
+place-items:center;
+font-size:32px;
+background:linear-gradient(135deg,var(--orange),var(--gold));
+color:#111;
+font-weight:800
+}
+
+.profile-box h3{
+margin-top:12px
+}
+
+.points{
+margin-top:15px;
+padding:18px;
+border-radius:18px;
+background:linear-gradient(135deg,rgba(255,159,28,.16),rgba(255,209,102,.05));
+border:1px solid rgba(255,209,102,.2);
+text-align:center
+}
+
+.points b{
+display:block;
+font-size:30px;
+color:var(--gold)
+}
+
+.points span{
+font-size:10px;
+color:var(--muted)
+}
+
+/* TOAST */
+
+.toast{
+position:fixed;
+left:50%;
+bottom:92px;
+transform:translateX(-50%) translateY(20px);
+width:min(90%,500px);
+padding:14px 16px;
+background:#151d2d;
+border:1px solid var(--border);
+border-radius:15px;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:300;
+text-align:center;
+font-size:12px
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0)
+}
+
+/* RTL */
+
+body.rtl{
+direction:rtl;
+font-family:'Cairo',sans-serif
+}
+
+body.rtl .brand,
+body.rtl .service{
+direction:rtl
+}
+
+body.rtl .modal-head{
+direction:rtl
+}
+
+body.rtl .arrow{
+transform:rotate(180deg)
+}
+
+@media(min-width:601px){
+.bottom-nav{
+border-left:1px solid var(--border);
+border-right:1px solid var(--border);
+border-radius:20px 20px 0 0
+}
+}
+</style>
 </head>
 
 <body>
 
 <div class="app">
 
-  <!-- HEADER -->
-
-  <header>
-
-    <div class="brand">
-
-      <img
-        class="logo"
-        src="https://i.postimg.cc/0QS33zML/Picsart-25-06-19-21-10-31-112.jpg"
-        alt="Allo Parabole">
-
-      <div class="brand-text">
-        <h1>ALLO PARABOLE</h1>
-        <span>360° • MONDE DE LA VISION</span>
-      </div>
-
-    </div>
-
-    <button
-      class="lang-btn"
-      onclick="toggleLanguage()"
-      id="langBtn">
-      🇩🇿 AR
-    </button>
-
-  </header>
-
-
-  <!-- MAIN -->
-
-  <main>
-
-    <section class="hero">
-
-      <div
-        class="small"
-        data-fr="VOTRE SOLUTION LOCALE"
-        data-ar="الحل بين يديك">
-        VOTRE SOLUTION LOCALE
-      </div>
-
-      <h2
-        data-fr="Tout commence par votre <span>besoin.</span>"
-        data-ar="كل شيء يبدأ من <span>مشكلتك.</span>">
-        Tout commence par votre <span>besoin.</span>
-      </h2>
-
-      <p
-        data-fr="Installation, réglage, réception, télévision et solutions du monde de la vision. Allo Parabole vous accompagne simplement."
-        data-ar="تركيب، ضبط، استقبال، تلفاز وكل ما يخص عالم المشاهدة. Allo Parabole معك بطريقة بسيطة واحترافية.">
-        Installation, réglage, réception, télévision et solutions du monde de la vision.
-        Allo Parabole vous accompagne simplement.
-      </p>
-
-    </section>
-
-
-    <!-- DIAGNOSTIC BUTTON -->
-
-    <section class="main-action">
-
-      <h3
-        data-fr="🎯 Vous avez un problème ?"
-        data-ar="🎯 عندك مشكل؟">
-        🎯 Vous avez un problème ?
-      </h3>
-
-      <p
-        data-fr="Dites-nous simplement ce qui ne fonctionne pas."
-        data-ar="قل لنا فقط ما هو المشكل وسنساعدك في إيجاد الحل.">
-        Dites-nous simplement ce qui ne fonctionne pas.
-      </p>
-
-      <button
-        class="primary"
-        onclick="openDiagnostic()"
-        data-fr="🧠 Lancer le Diagnostic Express"
-        data-ar="🧠 ابدأ التشخيص السريع">
-        🧠 Lancer le Diagnostic Express
-      </button>
-
-    </section>
-
-
-    <!-- PROBLEMS -->
-
-    <section class="section">
-
-      <div class="section-title">
-
-        <h3
-          data-fr="De quoi avez-vous besoin ?"
-          data-ar="ماذا تحتاج؟">
-          De quoi avez-vous besoin ?
-        </h3>
-
-        <span
-          data-fr="CHOISIR"
-          data-ar="اختر">
-          CHOISIR
-        </span>
-
-      </div>
-
-
-      <div class="problem-grid">
-
-        <div
-          class="problem"
-          onclick="openBooking('Réglage parabole')">
-
-          <div class="problem-icon">📡</div>
-
-          <strong
-            data-fr="Problème de signal"
-            data-ar="مشكل في الإشارة">
-            Problème de signal
-          </strong>
-
-          <small
-            data-fr="Signal faible / absent"
-            data-ar="إشارة ضعيفة / منعدمة">
-            Signal faible / absent
-          </small>
-
-        </div>
-
-
-        <div
-          class="problem"
-          onclick="openBooking('Installation parabole')">
-
-          <div class="problem-icon">🛰️</div>
-
-          <strong
-            data-fr="Installation parabole"
-            data-ar="تركيب الصحن">
-            Installation parabole
-          </strong>
-
-          <small
-            data-fr="Installation complète"
-            data-ar="تركيب كامل">
-            Installation complète
-          </small>
-
-        </div>
-
-
-        <div
-          class="problem"
-          onclick="openBooking('TV murale')">
-
-          <div class="problem-icon">📺</div>
-
-          <strong
-            data-fr="TV & Support"
-            data-ar="تعليق التلفاز">
-            TV & Support
-          </strong>
-
-          <small
-            data-fr="Fixation murale"
-            data-ar="تعليق احترافي">
-            Fixation murale
-          </small>
-
-        </div>
-
-
-        <div
-          class="problem"
-          onclick="openBooking('Récepteur / chaînes')">
-
-          <div class="problem-icon">⚙️</div>
-
-          <strong
-            data-fr="Récepteur"
-            data-ar="جهاز الاستقبال">
-            Récepteur
-          </strong>
-
-          <small
-            data-fr="Réglage & chaînes"
-            data-ar="ضبط وقنوات">
-            Réglage & chaînes
-          </small>
-
-        </div>
-
-
-        <div
-          class="problem"
-          onclick="openBooking('Parabole collective')">
-
-          <div class="problem-icon">🏢</div>
-
-          <strong
-            data-fr="Collective"
-            data-ar="البارابول الجماعي">
-            Collective
-          </strong>
-
-          <small
-            data-fr="Installation / maintenance"
-            data-ar="تركيب / صيانة">
-            Installation / maintenance
-          </small>
-
-        </div>
-
-
-        <div
-          class="problem"
-          onclick="openBooking('Moteur parabole')">
-
-          <div class="problem-icon">⚙️</div>
-
-          <strong
-            data-fr="Moteur parabole"
-            data-ar="محرك الصحن">
-            Moteur parabole
-          </strong>
-
-          <small
-            data-fr="Manuel / automatique"
-            data-ar="يدوي / آلي">
-            Manuel / automatique
-          </small>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DIAGNOSTIC -->
-
-    <section class="section">
-
-      <div class="section-title">
-
-        <h3
-          data-fr="Diagnostic Express"
-          data-ar="التشخيص السريع">
-          Diagnostic Express
-        </h3>
-
-        <span>AI • 360°</span>
-
-      </div>
-
-
-      <div class="diagnostic">
-
-        <div class="diagnostic-icon">🧠</div>
-
-        <h3
-          data-fr="Vous ne connaissez pas le problème ?"
-          data-ar="لا تعرف ما هو المشكل؟">
-          Vous ne connaissez pas le problème ?
-        </h3>
-
-        <p
-          data-fr="Répondez à quelques questions simples et découvrez quelle intervention peut correspondre à votre situation."
-          data-ar="أجب عن بعض الأسئلة البسيطة وسنساعدك على معرفة التدخل المناسب لحالتك.">
-          Répondez à quelques questions simples et découvrez quelle intervention peut correspondre à votre situation.
-        </p>
-
-        <button
-          class="secondary"
-          onclick="openDiagnostic()"
-          data-fr="Commencer →"
-          data-ar="ابدأ الآن ←">
-          Commencer →
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section class="section">
-
-      <div class="section-title">
-
-        <h3
-          data-fr="Nos solutions"
-          data-ar="خدماتنا">
-          Nos solutions
-        </h3>
-
-        <span
-          data-fr="VOIR TOUT"
-          data-ar="الكل">
-          VOIR TOUT
-        </span>
-
-      </div>
-
-
-      <div class="services">
-
-        <div
-          class="service"
-          onclick="openBooking('Installation parabole')">
-
-          <div class="service-icon">🛰️</div>
-
-          <div class="service-info">
-
-            <strong
-              data-fr="Installation parabole"
-              data-ar="تركيب الصحون الهوائية">
-              Installation parabole
-            </strong>
-
-            <small
-              data-fr="Installation et orientation professionnelle."
-              data-ar="تركيب وتوجيه احترافي.">
-              Installation et orientation professionnelle.
-            </small>
-
-          </div>
-
-          <div class="arrow">›</div>
-
-        </div>
-
-
-        <div
-          class="service"
-          onclick="openBooking('Réglage & réception')">
-
-          <div class="service-icon">📡</div>
-
-          <div class="service-info">
-
-            <strong
-              data-fr="Réglage & réception"
-              data-ar="الضبط والاستقبال">
-              Réglage & réception
-            </strong>
-
-            <small
-              data-fr="Optimisation du signal et recherche des chaînes."
-              data-ar="تحسين الإشارة والبحث عن القنوات.">
-              Optimisation du signal et recherche des chaînes.
-            </small>
-
-          </div>
-
-          <div class="arrow">›</div>
-
-        </div>
-
-
-        <div
-          class="service"
-          onclick="openBooking('TV murale')">
-
-          <div class="service-icon">📺</div>
-
-          <div class="service-info">
-
-            <strong
-              data-fr="TV murale"
-              data-ar="تعليق التلفاز">
-              TV murale
-            </strong>
-
-            <small
-              data-fr="Fixation propre, stable et esthétique."
-              data-ar="تعليق ثابت، آمن وأنيق.">
-              Fixation propre, stable et esthétique.
-            </small>
-
-          </div>
-
-          <div class="arrow">›</div>
-
-        </div>
-
-
-        <div
-          class="service"
-          onclick="openBooking('Moteur parabole')">
-
-          <div class="service-icon">⚙️</div>
-
-          <div class="service-info">
-
-            <strong
-              data-fr="Moteur parabole"
-              data-ar="محرك الصحن">
-              Moteur parabole
-            </strong>
-
-            <small
-              data-fr="Installation de moteurs manuels et automatiques."
-              data-ar="تركيب المحركات اليدوية والآلية.">
-              Installation de moteurs manuels et automatiques.
-            </small>
-
-          </div>
-
-          <div class="arrow">›</div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROMO -->
-
-    <section class="section">
-
-      <div class="promo">
-
-        <div
-          class="tag"
-          data-fr="ALLO PARABOLE 360°"
-          data-ar="ALLO PARABOLE 360°">
-          ALLO PARABOLE 360°
-        </div>
-
-        <h3
-          data-fr="🎁 Des avantages arrivent..."
-          data-ar="🎁 مزايا وعروض قادمة...">
-          🎁 Des avantages arrivent...
-        </h3>
-
-        <p
-          data-fr="Découvrez bientôt nos offres, avantages clients et système de fidélité directement dans l'application."
-          data-ar="قريبًا ستجد العروض، مزايا العملاء ونظام الوفاء مباشرة داخل التطبيق.">
-          Découvrez bientôt nos offres, avantages clients et système de fidélité directement dans l'application.
-        </p>
-
-      </div>
-
-    </section>
-
-  </main>
-
+<header>
+<div class="brand">
+<img class="logo"
+src="https://i.postimg.cc/0QS33zML/Picsart-25-06-19-21-10-31-112.jpg"
+alt="Allo Parabole">
+<div class="brand-text">
+<h1>ALLO PARABOLE</h1>
+<span>360° • MONDE DE LA VISION</span>
+</div>
+</div>
+
+<button class="lang-btn" onclick="toggleLanguage()" id="langBtn">🇩🇿 AR</button>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="small"
+data-fr="VOTRE SOLUTION LOCALE"
+data-ar="الحل بين يديك">
+VOTRE SOLUTION LOCALE
+</div>
+
+<h2
+data-fr="Tout commence par votre <span>besoin.</span>"
+data-ar="كل شيء يبدأ من <span>مشكلتك.</span>">
+Tout commence par votre <span>besoin.</span>
+</h2>
+
+<p
+data-fr="Installation, réglage, réception, télévision et solutions du monde de la vision. Allo Parabole vous accompagne simplement et professionnellement."
+data-ar="تركيب، ضبط، استقبال، تلفاز وكل ما يخص عالم المشاهدة. Allo Parabole معك بطريقة بسيطة واحترافية.">
+Installation, réglage, réception, télévision et solutions du monde de la vision.
+Allo Parabole vous accompagne simplement et professionnellement.
+</p>
+
+</section>
+
+
+<section class="main-action">
+
+<h3 data-fr="🎯 Vous avez un problème ?"
+data-ar="🎯 عندك مشكل؟">
+🎯 Vous avez un problème ?
+</h3>
+
+<p data-fr="Dites-nous simplement ce qui ne fonctionne pas."
+data-ar="قل لنا فقط واش هو المشكل وسنساعدك تلقى الحل.">
+Dites-nous simplement ce qui ne fonctionne pas.
+</p>
+
+<button class="primary"
+onclick="openDiagnostic()"
+data-fr="🧠 Lancer le Diagnostic Express"
+data-ar="🧠 ابدأ التشخيص السريع">
+🧠 Lancer le Diagnostic Express
+</button>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+<h3 data-fr="De quoi avez-vous besoin ?"
+data-ar="ماذا تحتاج؟">
+De quoi avez-vous besoin ?
+</h3>
+
+<span data-fr="CHOISIR" data-ar="اختر">CHOISIR</span>
+</div>
+
+<div class="problem-grid">
+
+<div class="problem" onclick="openBooking('Réglage parabole')">
+<div class="problem-icon">📡</div>
+<strong data-fr="Problème de signal" data-ar="مشكل في الإشارة">Problème de signal</strong>
+<small data-fr="Signal faible / absent" data-ar="إشارة ضعيفة / منعدمة">Signal faible / absent</small>
+</div>
+
+<div class="problem" onclick="openBooking('Installation parabole')">
+<div class="problem-icon">🛰️</div>
+<strong data-fr="Installation parabole" data-ar="تركيب الصحن">Installation parabole</strong>
+<small data-fr="Installation complète" data-ar="تركيب كامل">Installation complète</small>
+</div>
+
+<div class="problem" onclick="openBooking('TV murale')">
+<div class="problem-icon">📺</div>
+<strong data-fr="TV & Support" data-ar="تعليق التلفاز">TV & Support</strong>
+<small data-fr="Fixation murale" data-ar="تعليق احترافي">Fixation murale</small>
+</div>
+
+<div class="problem" onclick="openBooking('Récepteur / chaînes')">
+<div class="problem-icon">⚙️</div>
+<strong data-fr="Récepteur" data-ar="جهاز الاستقبال">Récepteur</strong>
+<small data-fr="Réglage & chaînes" data-ar="ضبط وقنوات">Réglage & chaînes</small>
+</div>
+
+<div class="problem" onclick="openBooking('Parabole collective')">
+<div class="problem-icon">🏢</div>
+<strong data-fr="Collective" data-ar="البارابول الجماعي">Collective</strong>
+<small data-fr="Installation / maintenance" data-ar="تركيب / صيانة">Installation / maintenance</small>
+</div>
+
+<div class="problem" onclick="openBooking('Moteur parabole')">
+<div class="problem-icon">⚙️</div>
+<strong data-fr="Moteur parabole" data-ar="محرك الصحن">Moteur parabole</strong>
+<small data-fr="Manuel / automatique" data-ar="يدوي / آلي">Manuel / automatique</small>
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+<h3 data-fr="Diagnostic Express" data-ar="التشخيص السريع">
+Diagnostic Express
+</h3>
+<span>AI • 360°</span>
+</div>
+
+<div class="diagnostic">
+
+<div class="diagnostic-icon">🧠</div>
+
+<h3 data-fr="Vous ne connaissez pas le problème ?"
+data-ar="لا تعرف ما هو المشكل؟">
+Vous ne connaissez pas le problème ?
+</h3>
+
+<p data-fr="Répondez à quelques questions simples pour identifier l'intervention adaptée."
+data-ar="أجب عن بعض الأسئلة البسيطة لمعرفة التدخل المناسب.">
+Répondez à quelques questions simples pour identifier l'intervention adaptée.
+</p>
+
+<button class="secondary"
+onclick="openDiagnostic()"
+data-fr="Commencer →"
+data-ar="ابدأ الآن ←">
+Commencer →
+</button>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+<h3 data-fr="Nos solutions" data-ar="خدماتنا">Nos solutions</h3>
+<span data-fr="SERVICES" data-ar="الخدمات">SERVICES</span>
+</div>
+
+<div class="services">
+
+<div class="service" onclick="openBooking('Installation parabole')">
+<div class="service-icon">🛰️</div>
+<div class="service-info">
+<strong data-fr="Installation parabole" data-ar="تركيب الصحون الهوائية">Installation parabole</strong>
+<small data-fr="Installation et orientation professionnelle."
+data-ar="تركيب وتوجيه احترافي.">
+Installation et orientation professionnelle.
+</small>
+</div>
+<div class="arrow">›</div>
+</div>
+
+<div class="service" onclick="openBooking('Réglage & réception')">
+<div class="service-icon">📡</div>
+<div class="service-info">
+<strong data-fr="Réglage & réception" data-ar="الضبط والاستقبال">Réglage & réception</strong>
+<small data-fr="Optimisation du signal et recherche des chaînes."
+data-ar="تحسين الإشارة والبحث عن القنوات.">
+Optimisation du signal et recherche des chaînes.
+</small>
+</div>
+<div class="arrow">›</div>
+</div>
+
+<div class="service" onclick="openBooking('TV murale')">
+<div class="service-icon">📺</div>
+<div class="service-info">
+<strong data-fr="TV murale" data-ar="تعليق التلفاز">TV murale</strong>
+<small data-fr="Fixation propre, stable et esthétique."
+data-ar="تعليق ثابت وآمن وأنيق.">
+Fixation propre, stable et esthétique.
+</small>
+</div>
+<div class="arrow">›</div>
+</div>
+
+<div class="service" onclick="openBooking('Moteur parabole')">
+<div class="service-icon">⚙️</div>
+<div class="service-info">
+<strong data-fr="Moteur parabole" data-ar="محرك الصحن">Moteur parabole</strong>
+<small data-fr="Installation de moteurs manuels et automatiques."
+data-ar="تركيب المحركات اليدوية والآلية.">
+Installation de moteurs manuels et automatiques.
+</small>
+</div>
+<div class="arrow">›</div>
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<div class="promo">
+
+<div class="tag">ALLO PARABOLE 360°</div>
+
+<h3 data-fr="🎁 Votre espace client est connecté"
+data-ar="🎁 حسابك أصبح مرتبطًا">
+🎁 Votre espace client est connecté
+</h3>
+
+<p data-fr="Réservations, rendez-vous, notifications et points de fidélité seront enregistrés directement dans votre compte."
+data-ar="حجوزاتك، مواعيدك، إشعاراتك ونقاط الوفاء يتم حفظها مباشرة في حسابك.">
+Réservations, rendez-vous, notifications et points de fidélité seront enregistrés directement dans votre compte.
+</p>
+
+</div>
+
+</section>
+
+</main>
 </div>
 
 
@@ -1022,1049 +910,1349 @@
 
 <nav class="bottom-nav">
 
-  <button
-    class="nav-btn active"
-    onclick="goHome()">
+<button class="nav-btn active" onclick="goHome()">
+<span>⌂</span>
+<label data-fr="Accueil" data-ar="الرئيسية">Accueil</label>
+</button>
 
-    <span>⌂</span>
+<button class="nav-btn" onclick="openServices()">
+<span>🛠️</span>
+<label data-fr="Services" data-ar="الخدمات">Services</label>
+</button>
 
-    <label
-      data-fr="Accueil"
-      data-ar="الرئيسية">
-      Accueil
-    </label>
+<button class="nav-btn" onclick="openBooking('')">
+<span>📅</span>
+<label data-fr="Réserver" data-ar="احجز">Réserver</label>
+</button>
 
-  </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="openServices()">
-
-    <span>🛠️</span>
-
-    <label
-      data-fr="Services"
-      data-ar="الخدمات">
-      Services
-    </label>
-
-  </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="openBooking('')">
-
-    <span>📅</span>
-
-    <label
-      data-fr="Réserver"
-      data-ar="احجز">
-      Réserver
-    </label>
-
-  </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="openClient()">
-
-    <span>👤</span>
-
-    <label
-      data-fr="Mon espace"
-      data-ar="حسابي">
-      Mon espace
-    </label>
-
-  </button>
+<button class="nav-btn" onclick="openClient()">
+<span>👤</span>
+<label data-fr="Mon espace" data-ar="حسابي">Mon espace</label>
+</button>
 
 </nav>
 
 
-<!-- BOOKING MODAL -->
+<!-- BOOKING -->
 
-<div
-  class="modal"
-  id="bookingModal">
+<div class="modal" id="bookingModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div class="modal-head">
+<div class="modal-head">
+<h3 data-fr="📅 Réserver une intervention"
+data-ar="📅 حجز تدخل">
+📅 Réserver une intervention
+</h3>
 
-      <h3
-        data-fr="📅 Réserver une intervention"
-        data-ar="📅 حجز تدخل">
-        📅 Réserver une intervention
-      </h3>
+<button class="close" onclick="closeModal('bookingModal')">×</button>
+</div>
 
-      <button
-        class="close"
-        onclick="closeModal('bookingModal')">
-        ×
-      </button>
+<form onsubmit="submitBooking(event)">
 
-    </div>
+<div class="form-group">
+<label data-fr="Service" data-ar="الخدمة">Service</label>
 
+<select id="service">
+<option value="Installation parabole">Installation parabole</option>
+<option value="Réglage parabole">Réglage parabole</option>
+<option value="TV murale">TV murale</option>
+<option value="Récepteur / chaînes">Récepteur / chaînes</option>
+<option value="Parabole collective">Parabole collective</option>
+<option value="Moteur parabole">Moteur parabole</option>
+<option value="Réglage & réception">Réglage & réception</option>
+</select>
+</div>
 
-    <form onsubmit="submitBooking(event)">
+<div class="form-group">
+<label data-fr="Nom complet" data-ar="الاسم الكامل">Nom complet</label>
+<input type="text" id="name" required placeholder="Votre nom">
+</div>
 
-      <div class="form-group">
+<div class="form-group">
+<label data-fr="Téléphone" data-ar="الهاتف">Téléphone</label>
+<input type="tel" id="phone" required placeholder="0559...">
+</div>
 
-        <label
-          data-fr="Service"
-          data-ar="الخدمة">
-          Service
-        </label>
+<div class="form-group">
+<label data-fr="Adresse" data-ar="العنوان">Adresse</label>
+<input type="text" id="address" required placeholder="Guelma...">
+</div>
 
-        <select id="service">
+<div class="form-group">
+<label data-fr="Date souhaitée" data-ar="التاريخ المطلوب">Date souhaitée</label>
+<input type="date" id="date" required>
+</div>
 
-          <option value="Installation parabole">
-            Installation parabole
-          </option>
+<div class="form-group">
+<label data-fr="Période" data-ar="الفترة">Période</label>
 
-          <option value="Réglage parabole">
-            Réglage parabole
-          </option>
+<select id="period">
+<option value="Matin">Matin</option>
+<option value="Après-midi">Après-midi</option>
+<option value="Soir">Soir</option>
+</select>
+</div>
 
-          <option value="TV murale">
-            TV murale
-          </option>
+<button class="primary" type="submit"
+data-fr="CONFIRMER MA DEMANDE"
+data-ar="تأكيد الطلب">
+CONFIRMER MA DEMANDE
+</button>
 
-          <option value="Récepteur / chaînes">
-            Récepteur / chaînes
-          </option>
-
-          <option value="Parabole collective">
-            Parabole collective
-          </option>
-
-          <option value="Moteur parabole">
-            Moteur parabole
-          </option>
-
-          <option value="Réglage & réception">
-            Réglage & réception
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Nom complet"
-          data-ar="الاسم الكامل">
-          Nom complet
-        </label>
-
-        <input
-          type="text"
-          id="name"
-          required
-          autocomplete="name"
-          placeholder="Votre nom">
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Téléphone"
-          data-ar="الهاتف">
-          Téléphone
-        </label>
-
-        <input
-          type="tel"
-          id="phone"
-          required
-          autocomplete="tel"
-          placeholder="0559...">
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Adresse"
-          data-ar="العنوان">
-          Adresse
-        </label>
-
-        <input
-          type="text"
-          id="address"
-          required
-          autocomplete="street-address"
-          placeholder="Guelma...">
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Date souhaitée"
-          data-ar="التاريخ المطلوب">
-          Date souhaitée
-        </label>
-
-        <input
-          type="date"
-          id="date"
-          required>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Période"
-          data-ar="الفترة">
-          Période
-        </label>
-
-        <select id="period">
-
-          <option value="Matin">
-            Matin
-          </option>
-
-          <option value="Après-midi">
-            Après-midi
-          </option>
-
-          <option value="Soir">
-            Soir
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <button
-        class="primary"
-        id="submitBookingBtn"
-        type="submit"
-        data-fr="CONFIRMER MA DEMANDE"
-        data-ar="تأكيد الطلب">
-        CONFIRMER MA DEMANDE
-      </button>
-
-    </form>
-
-  </div>
-
+</form>
+</div>
 </div>
 
 
-<!-- DIAGNOSTIC MODAL -->
+<!-- DIAGNOSTIC -->
 
-<div
-  class="modal"
-  id="diagnosticModal">
+<div class="modal" id="diagnosticModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div class="modal-head">
+<div class="modal-head">
+<h3 data-fr="🧠 Diagnostic Express"
+data-ar="🧠 التشخيص السريع">
+🧠 Diagnostic Express
+</h3>
 
-      <h3
-        data-fr="🧠 Diagnostic Express"
-        data-ar="🧠 التشخيص السريع">
-        🧠 Diagnostic Express
-      </h3>
+<button class="close" onclick="closeModal('diagnosticModal')">×</button>
+</div>
 
-      <button
-        class="close"
-        onclick="closeModal('diagnosticModal')">
-        ×
-      </button>
+<div id="diagnosticContent">
 
-    </div>
+<div class="form-group">
 
+<label data-fr="Votre problème concerne-t-il le signal ?"
+data-ar="هل المشكل متعلق بالإشارة؟">
+Votre problème concerne-t-il le signal ?
+</label>
 
-    <div id="diagnosticContent">
-
-      <div class="form-group">
-
-        <label
-          data-fr="Votre problème concerne-t-il le signal ?"
-          data-ar="هل المشكل متعلق بالإشارة؟">
-          Votre problème concerne-t-il le signal ?
-        </label>
-
-        <select id="signalProblem">
-
-          <option value="yes">
-            Oui / نعم
-          </option>
-
-          <option value="no">
-            Non / لا
-          </option>
-
-          <option value="unknown">
-            Je ne sais pas / لا أعرف
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Toutes les chaînes sont-elles concernées ?"
-          data-ar="هل كل القنوات متأثرة؟">
-          Toutes les chaînes sont-elles concernées ?
-        </label>
-
-        <select id="allChannels">
-
-          <option value="yes">
-            Oui / نعم
-          </option>
-
-          <option value="no">
-            Non / لا
-          </option>
-
-          <option value="unknown">
-            Je ne sais pas / لا أعرف
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label
-          data-fr="Le problème est-il apparu récemment ?"
-          data-ar="هل ظهر المشكل مؤخرًا؟">
-          Le problème est-il apparu récemment ?
-        </label>
-
-        <select id="recentProblem">
-
-          <option value="yes">
-            Oui / نعم
-          </option>
-
-          <option value="no">
-            Non / لا
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <button
-        class="primary"
-        onclick="diagnose()"
-        data-fr="🔎 Voir le résultat"
-        data-ar="🔎 مشاهدة النتيجة">
-        🔎 Voir le résultat
-      </button>
-
-    </div>
-
-  </div>
+<select id="signalProblem">
+<option value="yes">Oui / نعم</option>
+<option value="no">Non / لا</option>
+<option value="unknown">Je ne sais pas / لا أعرف</option>
+</select>
 
 </div>
 
+<div class="form-group">
 
-<!-- CLIENT MODAL -->
+<label data-fr="Toutes les chaînes sont-elles concernées ?"
+data-ar="هل كل القنوات متأثرة؟">
+Toutes les chaînes sont-elles concernées ?
+</label>
 
-<div
-  class="modal"
-  id="clientModal">
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <h3
-        data-fr="👤 Mon espace"
-        data-ar="👤 حسابي">
-        👤 Mon espace
-      </h3>
-
-      <button
-        class="close"
-        onclick="closeModal('clientModal')">
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="diagnostic">
-
-      <div class="diagnostic-icon">
-        ✨
-      </div>
-
-      <h3
-        data-fr="Votre espace personnel arrive."
-        data-ar="مساحتك الشخصية قادمة.">
-        Votre espace personnel arrive.
-      </h3>
-
-      <p
-        data-fr="Connexion, demandes, rendez-vous, notifications et fidélité seront bientôt réunis ici."
-        data-ar="تسجيل الدخول، الطلبات، المواعيد، الإشعارات ونقاط الوفاء ستكون كلها هنا قريبًا.">
-        Connexion, demandes, rendez-vous, notifications et fidélité seront bientôt réunis ici.
-      </p>
-
-      <button
-        class="secondary"
-        onclick="openBooking('')"
-        data-fr="📅 Faire une réservation"
-        data-ar="📅 حجز تدخل">
-        📅 Faire une réservation
-      </button>
-
-    </div>
-
-  </div>
+<select id="allChannels">
+<option value="yes">Oui / نعم</option>
+<option value="no">Non / لا</option>
+<option value="unknown">Je ne sais pas / لا أعرف</option>
+</select>
 
 </div>
 
+<div class="form-group">
 
-<!-- FIREBASE -->
+<label data-fr="Le problème est-il apparu récemment ?"
+data-ar="هل ظهر المشكل مؤخرًا؟">
+Le problème est-il apparu récemment ?
+</label>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<select id="recentProblem">
+<option value="yes">Oui / نعم</option>
+<option value="no">Non / لا</option>
+</select>
+
+</div>
+
+<button class="primary"
+onclick="diagnose()"
+data-fr="🔎 Voir le résultat"
+data-ar="🔎 مشاهدة النتيجة">
+🔎 Voir le résultat
+</button>
+
+</div>
+</div>
+</div>
+
+
+<!-- CLIENT -->
+
+<div class="modal" id="clientModal">
+
+<div class="modal-box">
+
+<div class="modal-head">
+<h3 data-fr="👤 Mon espace"
+data-ar="👤 حسابي">
+👤 Mon espace
+</h3>
+
+<button class="close" onclick="closeModal('clientModal')">×</button>
+</div>
+
+<div id="clientContent"></div>
+
+</div>
+</div>
+
+
+<!-- AUTH -->
+
+<div class="modal" id="authModal">
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<h3 id="authTitle">👤 Connexion</h3>
+
+<button class="close" onclick="closeModal('authModal')">×</button>
+
+</div>
+
+<div class="tabs">
+
+<button class="tab active"
+id="loginTab"
+onclick="showLogin()">
+Connexion
+</button>
+
+<button class="tab"
+id="registerTab"
+onclick="showRegister()">
+Créer un compte
+</button>
+
+</div>
+
+<div id="authForm"></div>
+
+</div>
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-  /* =========================
-     FIREBASE CONFIGURATION
-     ========================= */
+/* =========================================================
+   FIREBASE
+========================================================= */
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDdnP1tag1XPHw-vGXMFaoX9UwXz_kvru8",
-    authDomain: "allo-parabole-24.firebaseapp.com",
-    databaseURL: "https://allo-parabole-24-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "allo-parabole-24",
-    storageBucket: "allo-parabole-24.firebasestorage.app",
-    messagingSenderId: "991490126700",
-    appId: "1:991490126700:web:3261b7494a259641bfb949",
-    measurementId: "G-WK6SX4WV0M"
-  };
+const firebaseConfig = {
+apiKey:"AIzaSyDdnP1tag1XPHw-vGXMFaoX9UwXz_kvru8",
+authDomain:"allo-parabole-24.firebaseapp.com",
+databaseURL:"https://allo-parabole-24-default-rtdb.europe-west1.firebasedatabase.app",
+projectId:"allo-parabole-24",
+storageBucket:"allo-parabole-24.firebasestorage.app",
+messagingSenderId:"991490126700",
+appId:"1:991490126700:web:3261b7494a259641bfb949",
+measurementId:"G-WK6SX4WV0M"
+};
 
+firebase.initializeApp(firebaseConfig);
 
-  /* INITIALISATION */
+const auth=firebase.auth();
+const db=firebase.database();
 
-  firebase.initializeApp(firebaseConfig);
+let currentLang="fr";
+let currentUser=null;
 
-  const database = firebase.database();
 
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
-  let currentLang = "fr";
+function toggleLanguage(){
 
+currentLang=currentLang==="fr"?"ar":"fr";
 
-  /* =========================
-     LANGUAGE
-     ========================= */
+document.body.classList.toggle("rtl",currentLang==="ar");
 
-  function toggleLanguage() {
+document.getElementById("langBtn").innerText=
+currentLang==="fr"?"🇩🇿 AR":"🇫🇷 FR";
 
-    currentLang = currentLang === "fr" ? "ar" : "fr";
+document.querySelectorAll("[data-fr]").forEach(el=>{
 
-    document.body.classList.toggle(
-      "rtl",
-      currentLang === "ar"
-    );
+const value=el.getAttribute("data-"+currentLang);
 
-    document.getElementById("langBtn").innerText =
-      currentLang === "fr"
-        ? "🇩🇿 AR"
-        : "🇫🇷 FR";
+if(value) el.innerHTML=value;
 
+});
 
-    document.querySelectorAll("[data-fr]").forEach(el => {
+}
 
-      const value =
-        el.getAttribute("data-" + currentLang);
 
-      if (value) {
-        el.innerHTML = value;
-      }
+/* =========================================================
+   TOAST
+========================================================= */
 
-    });
+function toast(message){
 
-  }
+const t=document.getElementById("toast");
 
+t.innerText=message;
+t.classList.add("show");
 
-  /* =========================
-     BOOKING
-     ========================= */
+setTimeout(()=>{
+t.classList.remove("show");
+},3000);
 
-  function openBooking(serviceName) {
+}
 
-    document.getElementById("bookingModal")
-      .classList.add("show");
 
+/* =========================================================
+   MODALS
+========================================================= */
 
-    if (serviceName) {
+function closeModal(id){
+document.getElementById(id).classList.remove("show");
+}
 
-      const select =
-        document.getElementById("service");
+function openDiagnostic(){
 
-      const exists =
-        Array.from(select.options)
-          .some(option => option.value === serviceName);
+document.getElementById("diagnosticModal").classList.add("show");
 
-      if (exists) {
-        select.value = serviceName;
-      }
+}
 
-    }
+function openServices(){
 
+const el=document.querySelector(".services");
 
-    /* Minimum date = today */
+if(el){
+window.scrollTo({
+top:el.offsetTop-30,
+behavior:"smooth"
+});
+}
 
-    const dateInput =
-      document.getElementById("date");
+}
 
-    const today =
-      new Date().toISOString().split("T")[0];
+function goHome(){
 
-    dateInput.min = today;
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
-  }
+}
 
 
-  /* =========================
-     DIAGNOSTIC
-     ========================= */
+/* =========================================================
+   BOOKING
+========================================================= */
 
-  function openDiagnostic() {
+function openBooking(serviceName){
 
-    document.getElementById("diagnosticModal")
-      .classList.add("show");
+if(!currentUser){
 
-  }
+document.getElementById("bookingModal").classList.remove("show");
 
+document.getElementById("authModal").classList.add("show");
 
-  /* =========================
-     CLIENT
-     ========================= */
+showLogin();
 
-  function openClient() {
+toast(
+currentLang==="fr"
+?"Connectez-vous pour réserver."
+:"سجّل الدخول أولاً باش تقدر تحجز."
+);
 
-    document.getElementById("clientModal")
-      .classList.add("show");
+return;
+}
 
-  }
+document.getElementById("bookingModal").classList.add("show");
 
+if(serviceName){
 
-  /* =========================
-     CLOSE MODAL
-     ========================= */
+const select=document.getElementById("service");
 
-  function closeModal(id) {
+for(let i=0;i<select.options.length;i++){
 
-    document.getElementById(id)
-      .classList.remove("show");
+if(select.options[i].value===serviceName){
 
-  }
+select.value=serviceName;
+break;
 
+}
 
-  /* =========================
-     SEND BOOKING TO FIREBASE
-     ========================= */
+}
 
-  async function submitBooking(event) {
+}
 
-    event.preventDefault();
+loadClientIntoBooking();
 
+}
 
-    const button =
-      document.getElementById("submitBookingBtn");
 
+/* =========================================================
+   LOAD CLIENT DATA
+========================================================= */
 
-    const name =
-      document.getElementById("name").value.trim();
+function loadClientIntoBooking(){
 
-    const phone =
-      document.getElementById("phone").value.trim();
+if(!currentUser) return;
 
-    const address =
-      document.getElementById("address").value.trim();
+db.ref("clients/"+currentUser.uid).once("value").then(snapshot=>{
 
-    const service =
-      document.getElementById("service").value;
+const data=snapshot.val();
 
-    const date =
-      document.getElementById("date").value;
+if(!data) return;
 
-    const period =
-      document.getElementById("period").value;
+document.getElementById("name").value=data.nom||"";
+document.getElementById("phone").value=data.telephone||"";
+document.getElementById("address").value=data.adresse||"";
 
+});
 
-    if (!name || !phone || !address || !service || !date) {
+}
 
-      return;
 
-    }
+/* =========================================================
+   SUBMIT BOOKING TO FIREBASE
+========================================================= */
 
+function submitBooking(event){
 
-    /* Prevent double click */
+event.preventDefault();
 
-    button.classList.add("loading");
-    button.disabled = true;
+if(!currentUser){
 
+toast(
+currentLang==="fr"
+?"Veuillez vous connecter."
+:"يجب تسجيل الدخول."
+);
 
-    try {
+return;
+}
 
-      /*
-       * Firebase generates a unique ID
-       */
+const booking={
 
-      const reservationRef =
-        database.ref("reservations").push();
+uid:currentUser.uid,
 
+nom:document.getElementById("name").value.trim(),
 
-      /*
-       * Data saved in Firebase
-       */
+telephone:document.getElementById("phone").value.trim(),
 
-      await reservationRef.set({
+adresse:document.getElementById("address").value.trim(),
 
-        nom: name,
+service:document.getElementById("service").value,
 
-        telephone: phone,
+date:document.getElementById("date").value,
 
-        adresse: address,
+periode:document.getElementById("period").value,
 
-        service: service,
+status:"nouvelle",
 
-        date: date,
+price:"",
 
-        date_pref: date,
+createdAt:Date.now()
 
-        heure_pref: period,
+};
 
-        status: "nouvelle",
+db.ref("reservations").push(booking)
 
-        price: "",
+.then(()=>{
 
-        rendezvous: "",
+return db.ref("clients/"+currentUser.uid).update({
 
-        createdAt: firebase.database.ServerValue.TIMESTAMP
+nom:booking.nom,
 
-      });
+telephone:booking.telephone,
 
+adresse:booking.adresse,
 
-      /* SUCCESS */
+email:currentUser.email
 
-      document
-        .getElementById("bookingModal")
-        .querySelector(".modal-box")
-        .innerHTML = `
+});
 
-          <div class="modal-head">
+})
 
-            <h3>
-              ${
-                currentLang === "fr"
-                  ? "Demande envoyée"
-                  : "تم إرسال الطلب"
-              }
-            </h3>
+.then(()=>{
 
-            <button
-              class="close"
-              onclick="closeModal('bookingModal')">
-              ×
-            </button>
+document.getElementById("bookingModal").querySelector(".modal-box").innerHTML=`
 
-          </div>
+<div class="modal-head">
 
+<h3>
+${currentLang==="fr"?"Demande envoyée":"تم إرسال الطلب"}
+</h3>
 
-          <div class="success">
+<button class="close"
+onclick="closeModal('bookingModal')">
+×
+</button>
 
-            <div class="success-icon">
-              ✅
-            </div>
+</div>
 
-            <h3>
+<div class="success">
 
-              ${
-                currentLang === "fr"
-                  ? "Merci " + escapeHtml(name) + " !"
-                  : "شكرًا " + escapeHtml(name) + " !"
-              }
+<div class="success-icon">✅</div>
 
-            </h3>
+<h3>
+${currentLang==="fr"
+?"Merci "+escapeHTML(booking.nom)+" !"
+:"شكرًا "+escapeHTML(booking.nom)+" !"}
+</h3>
 
+<p>
+${currentLang==="fr"
+?"Votre réservation a été enregistrée avec succès dans notre système. Vous pourrez suivre son état depuis votre espace client."
+:"تم تسجيل حجزك بنجاح في النظام. يمكنك متابعة حالة الطلب من حسابك."}
+</p>
 
-            <p>
+<button class="primary"
+onclick="closeModal('bookingModal')">
+${currentLang==="fr"?"Fermer":"إغلاق"}
+</button>
 
-              ${
-                currentLang === "fr"
-                  ? "Votre demande a été enregistrée avec succès. Nous allons examiner votre demande et vous contacter pour confirmer le rendez-vous."
-                  : "تم تسجيل طلبك بنجاح. سنراجع طلبك ونتواصل معك لتأكيد الموعد."
-              }
+</div>
+`;
 
-            </p>
+toast(
+currentLang==="fr"
+?"Réservation enregistrée ✓"
+:"تم تسجيل الحجز ✓"
+);
 
+})
 
-            <button
-              class="primary"
-              onclick="closeModal('bookingModal'); resetBookingModal()">
+.catch(error=>{
 
-              ${
-                currentLang === "fr"
-                  ? "Fermer"
-                  : "إغلاق"
-              }
+console.error(error);
 
-            </button>
+toast(
+currentLang==="fr"
+?"Erreur lors de l'enregistrement."
+:"حدث خطأ أثناء تسجيل الطلب."
+);
 
-          </div>
+});
 
-        `;
+}
 
 
-    } catch (error) {
+/* =========================================================
+   DIAGNOSTIC
+========================================================= */
 
-      console.error(
-        "Erreur Firebase:",
-        error
-      );
+function diagnose(){
 
+const signal=document.getElementById("signalProblem").value;
 
-      /* ERROR */
+const channels=document.getElementById("allChannels").value;
 
-      document
-        .getElementById("bookingModal")
-        .querySelector(".modal-box")
-        .innerHTML = `
+const recent=document.getElementById("recentProblem").value;
 
-          <div class="modal-head">
+let result="";
+let service="Réglage parabole";
 
-            <h3>
-              ${
-                currentLang === "fr"
-                  ? "Erreur"
-                  : "خطأ"
-              }
-            </h3>
+if(signal==="yes" && channels==="yes"){
 
-            <button
-              class="close"
-              onclick="closeModal('bookingModal')">
-              ×
-            </button>
+result=currentLang==="fr"
+?"📡 Le problème semble lié au système de réception. Un réglage ou une vérification de la parabole peut être nécessaire."
+:"📡 المشكل يبدو متعلق بنظام الاستقبال. قد تحتاج إلى ضبط الصحن أو فحصه.";
 
-          </div>
+service="Réglage parabole";
 
+}
 
-          <div class="error-box">
+else if(signal==="yes" && channels==="no"){
 
-            <div class="error-icon">
-              ⚠️
-            </div>
+result=currentLang==="fr"
+?"🎯 Certaines fréquences ou chaînes peuvent nécessiter une recherche ou une vérification."
+:"🎯 بعض الترددات أو القنوات قد تحتاج إلى البحث أو الفحص.";
 
-            <h3>
+service="Récepteur / chaînes";
 
-              ${
-                currentLang === "fr"
-                  ? "Impossible d'envoyer la demande"
-                  : "تعذر إرسال الطلب"
-              }
+}
 
-            </h3>
+else if(signal==="no" && recent==="yes"){
 
+result=currentLang==="fr"
+?"🔎 Une vérification du récepteur, du câblage ou du téléviseur peut être nécessaire."
+:"🔎 قد يحتاج جهاز الاستقبال أو الكابل أو التلفاز إلى فحص.";
 
-            <p>
+service="Récepteur / chaînes";
 
-              ${
-                currentLang === "fr"
-                  ? "Une erreur est survenue. Vérifiez votre connexion Internet puis réessayez."
-                  : "حدث خطأ. تحقق من اتصالك بالإنترنت ثم حاول مرة أخرى."
-              }
+}
 
-            </p>
+else{
 
+result=currentLang==="fr"
+?"🛠️ Une vérification sur place permettra d'identifier précisément le problème."
+:"🛠️ الفحص في عين المكان سيساعد على تحديد المشكل بدقة.";
 
-            <button
-              class="primary"
-              onclick="location.reload()">
+service="Réglage & réception";
 
-              ${
-                currentLang === "fr"
-                  ? "Réessayer"
-                  : "إعادة المحاولة"
-              }
+}
 
-            </button>
+document.getElementById("diagnosticContent").innerHTML=`
 
-          </div>
+<div class="success">
 
-        `;
+<div class="success-icon">🔎</div>
 
-    }
+<h3>
+${currentLang==="fr"?"Résultat du diagnostic":"نتيجة التشخيص"}
+</h3>
 
-  }
+<p>${result}</p>
 
+<button class="primary"
+onclick="closeModal('diagnosticModal');openBooking('${service}')">
 
-  /* =========================
-     RESET BOOKING MODAL
-     ========================= */
+${currentLang==="fr"
+?"📅 Demander une intervention"
+:"📅 طلب تدخل"}
 
-  function resetBookingModal() {
+</button>
 
-    location.reload();
+</div>
 
-  }
+`;
 
+}
 
-  /* =========================
-     DIAGNOSTIC ENGINE
-     ========================= */
 
-  function diagnose() {
+/* =========================================================
+   AUTH UI
+========================================================= */
 
-    const signal =
-      document.getElementById("signalProblem").value;
+function showLogin(){
 
-    const channels =
-      document.getElementById("allChannels").value;
+document.getElementById("loginTab").classList.add("active");
 
-    const recent =
-      document.getElementById("recentProblem").value;
+document.getElementById("registerTab").classList.remove("active");
 
+document.getElementById("authTitle").innerText=
+currentLang==="fr"?"👤 Connexion":"👤 تسجيل الدخول";
 
-    let result = "";
+document.getElementById("authForm").innerHTML=`
 
-    let service = "Réglage parabole";
+<div class="form-group">
 
+<label>${currentLang==="fr"?"Email":"البريد الإلكتروني"}</label>
 
-    if (
-      signal === "yes" &&
-      channels === "yes"
-    ) {
+<input type="email"
+id="loginEmail"
+placeholder="example@email.com"
+required>
 
-      service = "Réglage parabole";
+</div>
 
-      result =
-        currentLang === "fr"
+<div class="form-group">
 
-          ? "📡 Un réglage ou une vérification de la parabole peut être nécessaire."
+<label>${currentLang==="fr"?"Mot de passe":"كلمة المرور"}</label>
 
-          : "📡 قد تحتاج إلى ضبط الصحن أو فحص نظام الاستقبال.";
+<input type="password"
+id="loginPassword"
+placeholder="••••••••"
+required>
 
-    }
+</div>
 
-    else if (
-      signal === "yes" &&
-      channels === "no"
-    ) {
+<button class="primary"
+onclick="login()">
 
-      service = "Réglage & réception";
+${currentLang==="fr"
+?"SE CONNECTER"
+:"تسجيل الدخول"}
 
-      result =
-        currentLang === "fr"
+</button>
 
-          ? "🎯 Une recherche ou une vérification des fréquences peut être nécessaire."
+`;
 
-          : "🎯 قد تحتاج إلى البحث عن القنوات أو فحص الترددات.";
+}
 
-    }
+function showRegister(){
 
-    else if (
-      signal === "no" &&
-      recent === "yes"
-    ) {
+document.getElementById("loginTab").classList.remove("active");
 
-      service = "Récepteur / chaînes";
+document.getElementById("registerTab").classList.add("active");
 
-      result =
-        currentLang === "fr"
+document.getElementById("authTitle").innerText=
+currentLang==="fr"?"✨ Créer un compte":"✨ إنشاء حساب";
 
-          ? "⚙️ Le problème peut concerner le récepteur ou la configuration des chaînes."
+document.getElementById("authForm").innerHTML=`
 
-          : "⚙️ قد يكون المشكل متعلقًا بجهاز الاستقبال أو إعدادات القنوات.";
+<div class="form-group">
 
-    }
+<label>${currentLang==="fr"?"Nom complet":"الاسم الكامل"}</label>
 
-    else {
+<input type="text"
+id="registerName"
+placeholder="${currentLang==="fr"?"Votre nom":"اسمك الكامل"}">
 
-      service = "Réglage parabole";
+</div>
 
-      result =
-        currentLang === "fr"
+<div class="form-group">
 
-          ? "🔎 Une vérification sur place permettra de déterminer précisément le problème."
+<label>${currentLang==="fr"?"Email":"البريد الإلكتروني"}</label>
 
-          : "🔎 الفحص في عين المكان سيساعد على تحديد المشكل بدقة.";
+<input type="email"
+id="registerEmail"
+placeholder="example@email.com">
 
-    }
+</div>
 
+<div class="form-group">
 
-    document.getElementById("diagnosticContent")
-      .innerHTML = `
+<label>${currentLang==="fr"?"Téléphone":"الهاتف"}</label>
 
-        <div class="success">
+<input type="tel"
+id="registerPhone"
+placeholder="0559...">
 
-          <div class="success-icon">
-            🔎
-          </div>
+</div>
 
+<div class="form-group">
 
-          <h3>
+<label>${currentLang==="fr"?"Adresse":"العنوان"}</label>
 
-            ${
-              currentLang === "fr"
-                ? "Résultat"
-                : "النتيجة"
-            }
+<input type="text"
+id="registerAddress"
+placeholder="${currentLang==="fr"?"Guelma...":"ڨالمة..."}">
 
-          </h3>
+</div>
 
+<div class="form-group">
 
-          <p>
-            ${result}
-          </p>
+<label>${currentLang==="fr"?"Mot de passe":"كلمة المرور"}</label>
 
+<input type="password"
+id="registerPassword"
+placeholder="6 caractères minimum">
 
-          <button
-            class="primary"
-            onclick="openBooking('${service}'); closeModal('diagnosticModal')">
+</div>
 
-            ${
-              currentLang === "fr"
-                ? "📅 Demander une intervention"
-                : "📅 طلب تدخل"
-            }
+<button class="primary"
+onclick="register()">
 
-          </button>
+${currentLang==="fr"
+?"CRÉER MON COMPTE"
+:"إنشاء حساب"}
 
-        </div>
+</button>
 
-      `;
+`;
 
-  }
+}
 
 
-  /* =========================
-     SERVICES NAVIGATION
-     ========================= */
+/* =========================================================
+   REGISTER
+========================================================= */
 
-  function openServices() {
+function register(){
 
-    const services =
-      document.querySelector(".services");
+const nom=document.getElementById("registerName").value.trim();
 
-    if (!services) return;
+const email=document.getElementById("registerEmail").value.trim();
 
+const telephone=document.getElementById("registerPhone").value.trim();
 
-    window.scrollTo({
+const adresse=document.getElementById("registerAddress").value.trim();
 
-      top:
-        services.offsetTop - 30,
+const password=document.getElementById("registerPassword").value;
 
-      behavior: "smooth"
+if(!nom || !email || !telephone || !adresse || password.length<6){
 
-    });
+toast(
+currentLang==="fr"
+?"Remplissez tous les champs. Mot de passe : 6 caractères minimum."
+:"أكمل جميع المعلومات. كلمة السر لازم تكون 6 أحرف على الأقل."
+);
 
-  }
+return;
+}
 
+auth.createUserWithEmailAndPassword(email,password)
 
-  /* =========================
-     HOME
-     ========================= */
+.then(result=>{
 
-  function goHome() {
+const uid=result.user.uid;
 
-    window.scrollTo({
+return db.ref("clients/"+uid).set({
 
-      top: 0,
+uid:uid,
 
-      behavior: "smooth"
+nom:nom,
 
-    });
+email:email,
 
-  }
+telephone:telephone,
 
+adresse:adresse,
 
-  /* =========================
-     HTML SECURITY
-     ========================= */
+points:0,
 
-  function escapeHtml(text) {
+createdAt:Date.now()
 
-    const div =
-      document.createElement("div");
+});
 
-    div.textContent = text;
+})
 
-    return div.innerHTML;
+.then(()=>{
 
-  }
+toast(
+currentLang==="fr"
+?"Compte créé avec succès ✓"
+:"تم إنشاء الحساب بنجاح ✓"
+);
 
+closeModal("authModal");
 
-  /* =========================
-     CLOSE BY CLICKING OUTSIDE
-     ========================= */
+openClient();
 
-  window.onclick = function(event) {
+})
 
-    document
-      .querySelectorAll(".modal")
-      .forEach(modal => {
+.catch(error=>{
 
-        if (event.target === modal) {
+let msg=error.message;
 
-          modal.classList.remove("show");
+if(error.code==="auth/email-already-in-use"){
 
-        }
+msg=currentLang==="fr"
+?"Cet email est déjà utilisé."
+:"هذا البريد الإلكتروني مستعمل من قبل.";
 
-      });
+}
 
-  };
+if(error.code==="auth/invalid-email"){
 
+msg=currentLang==="fr"
+?"Adresse email invalide."
+:"البريد الإلكتروني غير صحيح.";
 
-  /* =========================
-     ESC KEY
-     ========================= */
+}
 
-  document.addEventListener(
-    "keydown",
-    function(event) {
+if(error.code==="auth/weak-password"){
 
-      if (event.key === "Escape") {
+msg=currentLang==="fr"
+?"Mot de passe trop faible."
+:"كلمة المرور ضعيفة.";
 
-        document
-          .querySelectorAll(".modal")
-          .forEach(modal => {
+}
 
-            modal.classList.remove("show");
+toast(msg);
 
-          });
+});
 
-      }
+}
 
-    }
-  );
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function login(){
+
+const email=document.getElementById("loginEmail").value.trim();
+
+const password=document.getElementById("loginPassword").value;
+
+if(!email || !password){
+
+toast(
+currentLang==="fr"
+?"Entrez votre email et votre mot de passe."
+:"أدخل البريد الإلكتروني وكلمة المرور."
+);
+
+return;
+}
+
+auth.signInWithEmailAndPassword(email,password)
+
+.then(()=>{
+
+toast(
+currentLang==="fr"
+?"Connexion réussie ✓"
+:"تم تسجيل الدخول ✓"
+);
+
+closeModal("authModal");
+
+openClient();
+
+})
+
+.catch(error=>{
+
+let msg;
+
+if(error.code==="auth/invalid-credential" ||
+error.code==="auth/wrong-password" ||
+error.code==="auth/user-not-found"){
+
+msg=currentLang==="fr"
+?"Email ou mot de passe incorrect."
+:"البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+
+}else{
+
+msg=error.message;
+
+}
+
+toast(msg);
+
+});
+
+}
+
+
+/* =========================================================
+   CLIENT SPACE
+========================================================= */
+
+function openClient(){
+
+document.getElementById("clientModal").classList.add("show");
+
+renderClient();
+
+}
+
+function renderClient(){
+
+const content=document.getElementById("clientContent");
+
+if(!currentUser){
+
+content.innerHTML=`
+
+<div class="diagnostic">
+
+<div class="diagnostic-icon">👤</div>
+
+<h3>
+${currentLang==="fr"
+?"Votre espace personnel"
+:"حسابك الشخصي"}
+</h3>
+
+<p>
+${currentLang==="fr"
+?"Connectez-vous ou créez un compte pour réserver vos interventions et suivre vos demandes."
+:"سجّل الدخول أو أنشئ حسابًا لحجز التدخلات ومتابعة طلباتك."}
+</p>
+
+<button class="primary"
+onclick="closeModal('clientModal');document.getElementById('authModal').classList.add('show');showLogin()">
+
+${currentLang==="fr"
+?"SE CONNECTER"
+:"تسجيل الدخول"}
+
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="closeModal('clientModal');document.getElementById('authModal').classList.add('show');showRegister()">
+
+${currentLang==="fr"
+?"✨ CRÉER UN COMPTE"
+:"✨ إنشاء حساب"}
+
+</button>
+
+</div>
+
+`;
+
+return;
+}
+
+db.ref("clients/"+currentUser.uid).once("value")
+
+.then(snapshot=>{
+
+const data=snapshot.val() || {};
+
+const points=data.points || 0;
+
+content.innerHTML=`
+
+<div class="profile-box">
+
+<div class="profile-avatar">
+${escapeHTML((data.nom||"A").charAt(0).toUpperCase())}
+</div>
+
+<h3>${escapeHTML(data.nom||"Client")}</h3>
+
+<small style="color:var(--muted)">
+${escapeHTML(data.email||currentUser.email||"")}
+</small>
+
+</div>
+
+<div class="points">
+
+<b>${points}</b>
+
+<span>
+${currentLang==="fr"
+?"Points de fidélité"
+:"نقاط الوفاء"}
+</span>
+
+</div>
+
+<br>
+
+<div class="info-card">
+
+<strong>📞 ${escapeHTML(data.telephone||"")}</strong>
+
+<small>
+📍 ${escapeHTML(data.adresse||"")}
+</small>
+
+</div>
+
+<button class="primary"
+onclick="loadReservations()">
+
+📋 ${currentLang==="fr"
+?"Mes réservations"
+:"حجوزاتي"}
+
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="loadNotifications()">
+
+🔔 ${currentLang==="fr"
+?"Mes notifications"
+:"إشعاراتي"}
+
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="openBooking('')">
+
+📅 ${currentLang==="fr"
+?"Nouvelle réservation"
+:"حجز جديد"}
+
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="logout()">
+
+🚪 ${currentLang==="fr"
+?"Se déconnecter"
+:"تسجيل الخروج"}
+
+</button>
+
+`;
+
+});
+
+}
+
+
+/* =========================================================
+   RESERVATIONS
+========================================================= */
+
+function loadReservations(){
+
+if(!currentUser) return;
+
+db.ref("reservations")
+.orderByChild("uid")
+.equalTo(currentUser.uid)
+.once("value")
+
+.then(snapshot=>{
+
+let html=`
+
+<div class="modal-head">
+
+<h3>
+📋 ${currentLang==="fr"
+?"Mes réservations"
+:"حجوزاتي"}
+</h3>
+
+<button class="close"
+onclick="renderClient()">
+×
+</button>
+
+</div>
+`;
+
+let found=false;
+
+snapshot.forEach(child=>{
+
+found=true;
+
+const r=child.val();
+
+const status=r.status||"nouvelle";
+
+html+=`
+
+<div class="info-card">
+
+<strong>📌 ${escapeHTML(r.service||"Service")}</strong>
+
+<small>
+📅 ${escapeHTML(r.date||"")}<br>
+🕐 ${escapeHTML(r.periode||"")}<br>
+📍 ${escapeHTML(r.adresse||"")}
+</small>
+
+<span class="status ${status}">
+${translateStatus(status)}
+</span>
+
+</div>
+
+`;
+
+});
+
+if(!found){
+
+html+=`
+
+<div class="empty">
+
+📭<br><br>
+
+${currentLang==="fr"
+?"Vous n'avez encore aucune réservation."
+:"ليس لديك أي حجز حاليًا."}
+
+</div>
+
+`;
+
+}
+
+document.getElementById("clientContent").innerHTML=html;
+
+});
+
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+function loadNotifications(){
+
+if(!currentUser) return;
+
+db.ref("notifications/"+currentUser.uid)
+.once("value")
+
+.then(snapshot=>{
+
+let html=`
+
+<div class="modal-head">
+
+<h3>
+🔔 ${currentLang==="fr"
+?"Notifications"
+:"الإشعارات"}
+</h3>
+
+<button class="close"
+onclick="renderClient()">
+×
+</button>
+
+</div>
+`;
+
+let found=false;
+
+snapshot.forEach(child=>{
+
+found=true;
+
+const n=child.val();
+
+html+=`
+
+<div class="info-card">
+
+<strong>🔔 ${escapeHTML(n.title||"Allo Parabole")}</strong>
+
+<small>
+${escapeHTML(n.message||"")}
+</small>
+
+</div>
+
+`;
+
+});
+
+if(!found){
+
+html+=`
+
+<div class="empty">
+
+🔕<br><br>
+
+${currentLang==="fr"
+?"Aucune notification pour le moment."
+:"لا توجد إشعارات حاليًا."}
+
+</div>
+
+`;
+
+}
+
+document.getElementById("clientContent").innerHTML=html;
+
+});
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function translateStatus(status){
+
+const map={
+
+nouvelle:currentLang==="fr"?"Nouvelle":"جديد",
+
+encours:currentLang==="fr"?"En cours":"قيد المعالجة",
+
+acceptee:currentLang==="fr"?"Acceptée":"مقبول",
+
+terminee:currentLang==="fr"?"Terminée":"مكتمل"
+
+};
+
+return map[status]||status;
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout(){
+
+auth.signOut()
+
+.then(()=>{
+
+toast(
+currentLang==="fr"
+?"Déconnexion réussie."
+:"تم تسجيل الخروج."
+);
+
+closeModal("clientModal");
+
+});
+
+}
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+auth.onAuthStateChanged(user=>{
+
+currentUser=user;
+
+});
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+return String(value||"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   CLOSE MODALS OUTSIDE
+========================================================= */
+
+window.addEventListener("click",function(event){
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+if(event.target===modal){
+
+modal.classList.remove("show");
+
+}
+
+});
+
+});
+
+
+/* =========================================================
+   DEFAULT DATE
+========================================================= */
+
+const dateInput=document.getElementById("date");
+
+if(dateInput){
+
+const today=new Date();
+
+const yyyy=today.getFullYear();
+
+const mm=String(today.getMonth()+1).padStart(2,"0");
+
+const dd=String(today.getDate()).padStart(2,"0");
+
+dateInput.min=`${yyyy}-${mm}-${dd}`;
+
+}
 
 </script>
 
