@@ -31,7 +31,15 @@
 --green:#3ddc97;
 --red:#ff647c;
 }
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Allo Parabole 360° PWA activée"))
+      .catch(error => console.error("PWA:", error));
+  });
+}
+</script>
 body{
 font-family:Montserrat,Cairo,sans-serif;
 background:
